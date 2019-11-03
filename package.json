@@ -1,0 +1,7 @@
+{
+  "name": "web-config",
+  "version": "1.0.0-beta",
+  "description": "A re-usable set of configurations for JS web development.",
+  "author": "Craig Miller",
+  "license": "MIT"
+}
