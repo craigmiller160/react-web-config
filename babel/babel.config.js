@@ -1,6 +1,8 @@
 const createPresetEnv = require('./createPresetEnv');
 const languageFeatures = require('./languageFeatures');
 
+// TODO separate out the react stuff into a separate file that can be merged
+
 const config = {
 	presets: [
 		'@babel/preset-react'
