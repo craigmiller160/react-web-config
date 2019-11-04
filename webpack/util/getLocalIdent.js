@@ -3,7 +3,7 @@ const path = require('path');
 
 const getLocalIdent = (loaderContext, localIdentName, localName, options) => {
 	// get the project context
-	const context = (!options.context) ? loderContext.rootContext : options.context;
+	const context = (!options.context) ? loaderContext.rootContext : options.context;
 
 	// get the path and classname as key for generating hash
 	const content = `${path.relative(context, loaderContext.resourcePath).replace(/\\/g, '/')}+${localName}`;

@@ -14,7 +14,8 @@
     "webpack",
     "eslint",
     "babel",
-    "lib"
+    "lib",
+    "config"
   ],
   "dependencies": {
     "@babel/core": "^7.6.4",

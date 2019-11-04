@@ -10,7 +10,7 @@ const createConfig = ({ rootDir, port } = {}) => ({
 	},
 	devServer: {
 		compress: true,
-		inline: true,
+		// inline: true,
 		contentBase: path.resolve(rootDir, 'dist'),
 		overlay: {
 			errors: true,
@@ -33,11 +33,18 @@ const createConfig = ({ rootDir, port } = {}) => ({
 		},
 		clientLogLevel: 'info',
 		historyApiFallback: {
-			index: '/', // TODO left out rewrites here
+			index: '/',
+			rewrites: [
+				{
+					from: /.*assets(.*)/,
+					to: (context) => '/assets' + context.match[1]
+				}
+			],
 			verbose: true
 		},
-		hot: true,
-		port
+		// hot: true,
+		port,
+		watchContentBase: true
 	},
 	plugins: [
 		new HotModuleReplacementPlugin()
