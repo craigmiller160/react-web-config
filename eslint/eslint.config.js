@@ -29,7 +29,9 @@ const config = {
 		requestAnimationFrame: true,
 		localStorage: true,
 		sessionStorage: true,
-		fetch: true
+		fetch: true,
+		customElements: true,
+		HTMLElement: true
 	}
 };
 
