@@ -21,7 +21,7 @@ const config = {
 				ignoreComments: true
 			}
 		],
-		'mplicit-arrow-linebreak': 0
+		'implicit-arrow-linebreak': 0
 	},
 	globals: {
 		window: true,
