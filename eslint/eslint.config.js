@@ -13,7 +13,14 @@ const config = {
 		'react/jsx-indent-props': 0,
 		'no-trailing-spaces': 0,
 		'comma-dangle': ['error', 'never'],
-		'react/jsx-props-no-spreading': 0
+		'react/jsx-props-no-spreading': 0,
+		'max-len': [
+			'error',
+			{
+				code: 120,
+				ignoreComments: true
+			}
+		]
 	},
 	globals: {
 		window: true,
