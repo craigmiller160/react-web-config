@@ -20,7 +20,8 @@ const config = {
 				code: 120,
 				ignoreComments: true
 			}
-		]
+		],
+		'mplicit-arrow-linebreak': 0
 	},
 	globals: {
 		window: true,
