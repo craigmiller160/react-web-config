@@ -1,7 +1,6 @@
-const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const createConfig = ({ rootDir }) => ({
+const createConfig = ({ copyPaths = [] }) => ({
     module: {
         rules: [
             {
@@ -45,10 +44,7 @@ const createConfig = ({ rootDir }) => ({
         ]
     },
     plugins: [
-        new CopyWebpackPlugin({
-            context: path.resolve(rootDir, 'public'),
-            from: '**/*'
-        })
+        new CopyWebpackPlugin(copyPaths)
     ]
 });
 
