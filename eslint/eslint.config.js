@@ -17,6 +17,7 @@ const config = {
 		'no-trailing-spaces': 0,
 		'comma-dangle': ['error', 'never'],
 		'react/jsx-props-no-spreading': 0,
+		'no-plusplus': 0,
 		'max-len': [
 			'error',
 			{
