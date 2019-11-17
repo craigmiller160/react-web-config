@@ -21,5 +21,5 @@ gulp.task('webpack', () => {
 		.pipe(webpackStream({
 			config: webpackConfig
 		}))
-		.pipe(gulp.dest('dist'));
+		.pipe(gulp.dest('build'));
 });

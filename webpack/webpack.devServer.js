@@ -11,7 +11,7 @@ const createConfig = ({ rootDir, port } = {}) => ({
 	devServer: {
 		compress: true,
 		// inline: true,
-		contentBase: path.resolve(rootDir, 'dist'),
+		contentBase: path.resolve(rootDir, 'build'),
 		overlay: {
 			errors: true,
 			warnings: true

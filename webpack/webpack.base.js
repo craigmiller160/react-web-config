@@ -12,7 +12,7 @@ const createConfig = ({ rootDir, projectConfig } = {}) => ({
 		]
 	},
 	output: {
-		path: path.resolve(rootDir, 'dist'),
+		path: path.resolve(rootDir, 'build'),
 		filename: 'assets/js/app.[hash:8].js',
 		chunkFilename: 'assets/js/[name].[hash:8].js'
 	},
