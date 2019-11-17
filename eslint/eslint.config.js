@@ -2,6 +2,9 @@ const config = {
 	extends: [
 		'airbnb'
 	],
+	plugins: [
+		'react-hooks'
+	],
 	parser: 'babel-eslint',
 	rules: {
 		'no-tabs': 0,
