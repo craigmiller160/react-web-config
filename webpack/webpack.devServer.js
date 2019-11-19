@@ -2,9 +2,6 @@ const path = require('path');
 const { HotModuleReplacementPlugin } = require('webpack');
 
 const createConfig = ({ rootDir, port } = {}) => ({
-	output: {
-		filename: 'assets/js/app.js'
-	},
 	optimization: {
 		namedModules: true
 	},

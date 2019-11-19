@@ -5,7 +5,7 @@ const { ENV_PROD } = require('./webpack.constants');
 const path = require('path');
 const cssNano = require('cssnano');
 
-const createConfig = ({ rootDir }) => ({
+const createConfig = ({ rootDir } = {}) => ({
 	optimization: {
 		usedExports: true,
 		minimize: true,

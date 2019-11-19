@@ -1,6 +1,6 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const createConfig = ({ copyPaths = [] }) => ({
+const createConfig = ({ copyPaths = [] } = {}) => ({
     module: {
         rules: [
             {

@@ -1,9 +1,10 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { ENV_PROD } = require('./webpack.constants');
 const getLocalIdent = require('./util/getLocalIdent');
 
-const createConfig = () => {
+const createConfig = ({ useFilenameHash = true } = {}) => {
+	const chunkhash = useFilenameHash ? '[chunkhash:8].' : '';
+
 	const cssLoader = (useModules, importLoaders) => {
 		const base = {
 			loader: 'css-loader',
@@ -39,8 +40,8 @@ const createConfig = () => {
 	return {
 		plugins: [
 			new MiniCssExtractPlugin({
-				filename: 'assets/css/app.[chunkhash:8].css',
-				chunkFilename: 'assets/css/[name].[chunkhash:8].css'
+				filename: `assets/css/app.${chunkhash}css`,
+				chunkFilename: `assets/css/[name].${chunkhash}css`
 			})
 		],
 		module: {
