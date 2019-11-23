@@ -2,12 +2,7 @@ const gulp = require('gulp');
 const path = require('path');
 const fs = require('fs');
 
-// TODO need to filter out LICENSE and html files
-// TODO need to remove cwd and build from file paths
-
 const cwd = process.cwd();
-
-console.log('CWD', cwd); // TODO delete this
 
 const walk = (dir) => {
     let results = [];
@@ -32,15 +27,19 @@ const createManifest = () => {
     const files = walk(path.resolve(cwd, 'build'));
 
     const output = files.reduce((acc, file) => {
-        if (/\.js$/.test(cleanFile(file))) {
-            acc.js.push(file);
+        if (/\.js$/.test(file)) {
+            acc.js.push(cleanFile(file));
         } else if (/\.css$/.test(file)) {
             acc.css.push(cleanFile(file));
+        } else if (/.LICENSE$/.test(file)) {
+            acc.lic.push(cleanFile(file));
+        } else if (/.html$/.test(file)) {
+            acc.html.push(cleanFile(file));
         } else {
             acc.other.push(cleanFile(file));
         }
         return acc;
-    }, { js: [], css: [], other: [] });
+    }, { js: [], css: [], lic: [], html: [], other: [] });
 
     fs.writeFileSync(path.resolve(cwd, 'build/file-manifest.json'), JSON.stringify(output));
 };
