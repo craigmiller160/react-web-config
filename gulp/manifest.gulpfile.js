@@ -23,7 +23,13 @@ const cleanFile = (file) =>
     file.replace(cwd, '')
         .replace('/build', '');
 
-const createManifest = () => {
+const createDirectory = (fullPath) => {
+    if (!fs.existsSync(fullPath)) {
+        fs.mkdirSync(fullPath);
+    }
+};
+
+const createProdManifest = () => {
     const files = walk(path.resolve(cwd, 'build'));
 
     const output = files.reduce((acc, file) => {
@@ -41,10 +47,29 @@ const createManifest = () => {
         return acc;
     }, { js: [], css: [], lic: [], html: [], other: [] });
 
+    createDirectory(path.resolve(cwd, 'build'));
     fs.writeFileSync(path.resolve(cwd, 'build/file-manifest.json'), JSON.stringify(output));
 };
 
-gulp.task('file-manifest', (cb) => {
-    createManifest();
+const createDevManifest = () => {
+    const manifest = {
+        js: [
+            '/assets/js/app.js'
+        ],
+        css: [
+            '/assets/css/app.css'
+        ]
+    };
+    createDirectory(path.resolve(cwd, 'devserver'));
+    fs.writeFileSync(path.resolve(cwd, 'devserver/file-manifest.json'), JSON.stringify(manifest));
+};
+
+gulp.task('prod-file-manifest', (cb) => {
+    createProdManifest();
+    cb();
+});
+
+gulp.task('dev-file-manifest', (cb) => {
+    createDevManifest();
     cb();
 });
