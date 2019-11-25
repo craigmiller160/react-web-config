@@ -1,6 +1,6 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const createConfig = ({ copyPaths = [], useFilenameHash = true } = {}) => {
+const createConfig = ({ copyPaths = [], useFilenameHash = true, publicPathPrefix = '' } = {}) => {
     const hash = useFilenameHash ? '[hash:8].' : '';
 
     return {
@@ -17,7 +17,7 @@ const createConfig = ({ copyPaths = [], useFilenameHash = true } = {}) => {
                                 limit: 30000,
                                 name: `[name].${hash}[ext]`,
                                 outputPath: 'assets/images',
-                                publicPath: '../../assets/images'
+                                publicPath: `../../${publicPathPrefix}/assets/images`
                             }
                         }
                     ]
@@ -40,7 +40,7 @@ const createConfig = ({ copyPaths = [], useFilenameHash = true } = {}) => {
                         options: {
                             name: `[name].${hash}[ext]`,
                             outputPath: 'assets/fonts/',
-                            publicPath: '../../assets/fonts'
+                            publicPath: `../../${publicPathPrefix}/assets/fonts`
                         }
                     }
                 }
