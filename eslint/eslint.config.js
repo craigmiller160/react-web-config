@@ -19,6 +19,7 @@ const config = {
 		'react/jsx-props-no-spreading': 0,
 		'no-plusplus': 0,
 		'operator-linebreak': ['error', 'after'],
+		'object-curly-newline': ['error', { consistent: true }],
 		'max-len': [
 			'error',
 			{
