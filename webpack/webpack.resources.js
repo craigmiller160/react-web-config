@@ -17,7 +17,7 @@ const createConfig = ({ copyPaths = [], useFilenameHash = true, publicPathPrefix
                                 limit: 30000,
                                 name: `[name].${hash}[ext]`,
                                 outputPath: 'assets/images',
-                                publicPath: `../../${publicPathPrefix}/assets/images`
+                                publicPath: `/${publicPathPrefix}/assets/images`
                             }
                         }
                     ]
@@ -40,7 +40,7 @@ const createConfig = ({ copyPaths = [], useFilenameHash = true, publicPathPrefix
                         options: {
                             name: `[name].${hash}[ext]`,
                             outputPath: 'assets/fonts/',
-                            publicPath: `../../${publicPathPrefix}/assets/fonts`
+                            publicPath: `/${publicPathPrefix}/assets/fonts`
                         }
                     }
                 }

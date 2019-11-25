@@ -2,6 +2,8 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+// TODO create some pre-made complete webpack configs to share, and move all these parts to a "parts" directory
+
 const createConfig = ({ rootDir, projectConfig, useFilenameHash = true } = {}) => {
 	const hash = useFilenameHash ? '[hash:8].' : '';
 	return {
