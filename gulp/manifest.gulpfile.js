@@ -4,6 +4,8 @@ const fs = require('fs');
 
 const cwd = process.cwd();
 
+// TODO for the prod manifest, need a hash for cache-busting
+
 const walk = (dir) => {
     let results = [];
     const list = fs.readdirSync(dir);
