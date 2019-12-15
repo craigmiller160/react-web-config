@@ -18,7 +18,8 @@ const createConfig = ({ rootDir, projectConfig, useFilenameHash = true } = {}) =
 		output: {
 			path: path.resolve(rootDir, 'build'),
 			filename: `assets/js/app.${hash}js`,
-			chunkFilename: `assets/js/[name].${hash}js`
+			chunkFilename: `assets/js/[name].${hash}js`,
+			publicPath: '/'
 		},
 		plugins: [
 			new CleanWebpackPlugin(),
