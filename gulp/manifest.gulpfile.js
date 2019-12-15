@@ -4,7 +4,7 @@ const fs = require('fs');
 
 const cwd = process.cwd();
 
-// TODO for the prod manifest, need a hash for cache-busting
+// TODO for the prod manifest, cannot cache it
 
 const walk = (dir) => {
     let results = [];
