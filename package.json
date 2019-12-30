@@ -47,6 +47,7 @@
     "gulp-env": "^0.4.0",
     "gulp-eslint": "^6.0.0",
     "gulp-sass-lint": "^1.4.0",
+    "gulp-tslint": "^8.1.4",
     "html-webpack-plugin": "^3.2.0",
     "loader-utils": "^1.2.3",
     "mini-css-extract-plugin": "^0.8.0",
