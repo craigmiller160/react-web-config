@@ -1,5 +1,5 @@
-const createPresetEnv = require('./createPresetEnv');
-const languageFeatures = require('./languageFeatures');
+const createPresetEnv = require('./utils/createPresetEnv');
+const languageFeatures = require('./utils/languageFeatures');
 
 // TODO separate out the react stuff into a separate file that can be merged
 
