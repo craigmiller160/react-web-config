@@ -5,6 +5,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const babel = require('gulp-babel');
 const path = require('path');
 require('./resources.gulpfile');
+require('./jsLib.gulpfile');
 
 gulp.task('clean', () => {
     const cwd = process.cwd();
@@ -12,7 +13,7 @@ gulp.task('clean', () => {
         .pipe(clean());
 });
 
-gulp.task('compile', () => {
+gulp.task('compileTS', () => {
     const cwd = process.cwd();
     const babelConfig = require(`${cwd}/babel.config`);
     const project = ts.createProject(path.resolve(cwd, 'tsconfig.json'));
@@ -27,4 +28,4 @@ gulp.task('compile', () => {
         .pipe(gulp.dest('lib'));
 });
 
-gulp.task('buildLib', gulp.series('clean', 'compile', 'copy-resources'));
+gulp.task('buildLib', gulp.series('clean', 'compileTS', 'compileJS', 'copy-resources'));

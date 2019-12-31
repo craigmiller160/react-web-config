@@ -4,7 +4,7 @@ const clean = require('gulp-clean');
 const path = require('path');
 require('./resources.gulpfile');
 
-gulp.task('compile', () => {
+gulp.task('compileJS', () => {
 	const cwd = process.cwd();
 	const babelConfig = require(`${cwd}/babel.config.js`);
 	return gulp.src([
@@ -21,4 +21,4 @@ gulp.task('clean', () => {
 		.pipe(clean());
 });
 
-gulp.task('buildLib', gulp.series('clean', 'compile', 'copy-resources'));
+gulp.task('buildLib', gulp.series('clean', 'compileJS', 'copy-resources'));
