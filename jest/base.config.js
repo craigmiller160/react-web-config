@@ -32,9 +32,6 @@ module.exports = {
     snapshotSerializers: [
         'enzyme-to-json/serializer'
     ],
-    transform: {
-        '^.+\.jsx?$': path.resolve(__dirname, './utils/transformer.js') // TODO remember typescript customizations
-    },
     modulePathIgnorePatterns: [
         '<rootDir>/.yalc'
     ]
