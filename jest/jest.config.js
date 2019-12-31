@@ -12,10 +12,10 @@ module.exports = {
         'test/**/*.{js,jsx,ts,tsx}'
     ],
     moduleNameMapper: {
-        '\.(css|scss|sass)$': path.resolve(__dirname, './styleMock.js'),
-        '\.(gif|ttf|eot|svg|png)': path.resolve(__dirname, './fileMock.js'),
-        '\.worker.js': path.resolve(__dirname, './workerMock.js'),
-        '\.worker.entry.js': path.resolve(__dirname, './workerMock.js')
+        '\.(css|scss|sass)$': path.resolve(__dirname, './utils/styleMock.js'),
+        '\.(gif|ttf|eot|svg|png)': path.resolve(__dirname, './utils/fileMock.js'),
+        '\.worker.js': path.resolve(__dirname, './utils/workerMock.js'),
+        '\.worker.entry.js': path.resolve(__dirname, './utils/workerMock.js')
     },
     modulePaths: [
         '<rootDir>/src'
@@ -33,7 +33,7 @@ module.exports = {
         'enzyme-to-json/serializer'
     ],
     transform: {
-        '^.+\.jsx?$': path.resolve(__dirname, 'transformer.js') // TODO remember typescript customizations
+        '^.+\.jsx?$': path.resolve(__dirname, './utils/transformer.js') // TODO remember typescript customizations
     },
     modulePathIgnorePatterns: [
         '<rootDir>/.yalc'
