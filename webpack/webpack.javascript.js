@@ -1,7 +1,7 @@
 const path = require('path');
 
 const createConfig = ({ rootDir }) => {
-	const babelConfigPath = path.resolve(rootDir, 'base.config.js');
+	const babelConfigPath = path.resolve(rootDir, 'babel.config.js');
 	const babelConfig = require(babelConfigPath);
 	return {
 		resolve: {
