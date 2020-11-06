@@ -6,6 +6,25 @@ const config = {
 		'react-hooks'
 	],
 	parser: 'babel-eslint',
+	env: {
+		browser: true,
+		commonjs: true,
+		es6: true,
+		jest: true,
+		node: true,
+	},
+	parserOptions: {
+		ecmaVersion: 2020,
+		sourceType: 'module',
+		ecmaFeatures: {
+			jsx: true,
+		},
+	},
+	settings: {
+		react: {
+			version: 'detect',
+		},
+	},
 	rules: {
 		'no-tabs': 0,
 		'react/jsx-indent': 0,
@@ -39,7 +58,54 @@ const config = {
 		fetch: true,
 		customElements: true,
 		HTMLElement: true
-	}
+	},
+	overrides: [
+		{
+			files: ['**/*.ts?(x)'],
+			parser: '@typescript-eslint/parser',
+			parserOptions: {
+				ecmaVersion: 2020,
+				sourceType: 'module',
+				ecmaFeatures: {
+					jsx: true,
+				},
+				warnOnUnsupportedTypeScriptVersion: true,
+			},
+			plugins: ['@typescript-eslint'],
+			rules: {
+				// TypeScript's `noFallthroughCasesInSwitch` option is more robust (#6906)
+				'default-case': 'off',
+				// 'tsc' already handles this (https://github.com/typescript-eslint/typescript-eslint/issues/291)
+				'no-dupe-class-members': 'off',
+				// 'tsc' already handles this (https://github.com/typescript-eslint/typescript-eslint/issues/477)
+				'no-undef': 'off',
+				'@typescript-eslint/consistent-type-assertions': 'error',
+				'@typescript-eslint/no-use-before-define': 'error',
+				'no-array-constructor': 'off',
+				'@typescript-eslint/no-array-constructor': 'error',
+				'no-use-before-define': 'off',
+				'no-unused-expressions': 'off',
+				'@typescript-eslint/no-unused-expressions': [
+					'error',
+					{
+						allowShortCircuit: true,
+						allowTernary: true,
+						allowTaggedTemplates: true,
+					},
+				],
+				'no-unused-vars': 'off',
+				'@typescript-eslint/no-unused-vars': [
+					'error',
+					{
+						args: 'none',
+						ignoreRestSiblings: true,
+					},
+				],
+				'no-useless-constructor': 'off',
+				'@typescript-eslint/no-useless-constructor': 'error'
+			}
+		}
+	]
 };
 
 module.exports = config;
