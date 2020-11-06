@@ -21,9 +21,6 @@ const loaders = (isCssModule) => ([
 ]);
 
 module.exports = {
-    plugins: [
-        new MiniCssExtractPlugin()
-    ],
     module: {
         rules: [
             {

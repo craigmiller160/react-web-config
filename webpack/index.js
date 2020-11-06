@@ -5,6 +5,7 @@ const webpackAnalyze = require('./parts/webpack.analyze');
 const webpackOptimize = require('./parts/webpack.optimize');
 const webpackResources = require('./parts/webpack.resources');
 const webpackCss = require('./parts/webpack.css');
+const webpackCssExtract = require('./parts/webpack.cssExtract');
 const merge = require('webpack-merge');
 
 const parts = [
@@ -17,6 +18,10 @@ const parts = [
 
 if (process.env.ANALYZE) {
     parts.push(webpackAnalyze);
+}
+
+if(process.env.NODE_ENV === 'production') {
+    parts.push(webpackCssExtract);
 }
 
 
