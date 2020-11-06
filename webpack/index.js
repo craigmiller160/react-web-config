@@ -3,6 +3,7 @@ const webpackHtml = require('./parts/webpack.html');
 const webpackJs = require('./parts/webpack.javascript');
 const webpackAnalyze = require('./parts/webpack.analyze');
 const webpackMinify = require('./parts/webpack.minify');
+const webpackResources = require('./parts/webpack.resources');
 const merge = require('webpack-merge');
 
 const parts = [
