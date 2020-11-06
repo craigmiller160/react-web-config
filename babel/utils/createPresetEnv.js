@@ -1,7 +1,9 @@
-const createPresetEnv = (modules) => ([
+const createPresetEnv = (modules, corejs) => ([
     '@babel/preset-env',
     {
-        modules
+        modules,
+        usage: 'entry',
+        corejs
     }
 ]);
 

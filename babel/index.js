@@ -1,28 +1,33 @@
 const createPresetEnv = require('./utils/createPresetEnv');
 
-// TODO separate out the react stuff into a separate file that can be merged
+const corejs = '3.7.0';
 
 const config = {
     presets: [
         '@babel/preset-react'
     ],
     plugins: [
-        '@babel/plugin-transform-runtime'
+        [
+            '@babel/plugin-transform-runtime',
+            {
+                corejs
+            }
+        ]
     ],
     env: {
         development: {
             presets: [
-                createPresetEnv(false)
+                createPresetEnv(false, corejs)
             ]
         },
         production: {
             presets: [
-                createPresetEnv(false)
+                createPresetEnv(false, corejs)
             ]
         },
         test: {
             presets: [
-                createPresetEnv('commonjs')
+                createPresetEnv('commonjs', corejs)
             ],
             plugins: [
                 'transform-es2015-modules-commonjs'
