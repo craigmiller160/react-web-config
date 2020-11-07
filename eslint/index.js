@@ -1,6 +1,8 @@
 const config = {
 	extends: [
-		'airbnb'
+		'airbnb',
+		'prettier',
+		'prettier/@typescript-eslint'
 	],
 	plugins: [
 		'react-hooks'
