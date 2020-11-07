@@ -4,6 +4,9 @@
   "sideEffects": [
     "./polyfills/index.js"
   ],
+  "bin": {
+    "lint": "./scripts/lint.js"
+  },
   "description": "A re-usable set of configurations for JS web development.",
   "author": "Craig Miller",
   "license": "MIT",
@@ -12,7 +15,8 @@
     "babel",
     "eslint",
     "polyfills",
-    "webpack"
+    "webpack",
+    "scripts"
   ],
   "dependencies": {
     "@babel/core": "^7.12.3",

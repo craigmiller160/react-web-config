@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const { ESLint } = require('eslint');
 const path = require('path');
 const fs = require('fs');
