@@ -1,12 +1,18 @@
 {
   "name": "@craigmiller160/web-config",
   "version": "1.1.0-beta",
-  "sideEffects": false,
+  "sideEffects": [
+    "./polyfills/index.js"
+  ],
   "description": "A re-usable set of configurations for JS web development.",
   "author": "Craig Miller",
   "license": "MIT",
   "files": [
-    ".yalc"
+    ".yalc",
+    "babel",
+    "eslint",
+    "polyfills",
+    "webpack"
   ],
   "dependencies": {
     "@babel/core": "^7.12.3",
