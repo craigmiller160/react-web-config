@@ -15,7 +15,13 @@ const execute = async () => {
     const eslint = new ESLint({
         errorOnUnmatchedPattern: false,
         baseConfig: eslintConfig,
-        useEslintrc: false
+        useEslintrc: false,
+        fix: true,
+        fixTypes: [
+            'problem',
+            'suggestion',
+            'layout'
+        ]
     });
 
     const results = await eslint.lintFiles([
@@ -23,6 +29,7 @@ const execute = async () => {
         path.resolve(process.cwd(), 'test'),
         path.resolve(process.cwd(), 'cypress')
     ]);
+    await ESLint.outputFixes(results);
     const formatter = await eslint.loadFormatter('stylish');
     const resultText = formatter.format(results);
 
