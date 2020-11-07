@@ -5,7 +5,7 @@
     "./polyfills/index.js"
   ],
   "bin": {
-    "lint": "./scripts/lint.js"
+    "web-config-scripts": "./bin/web-config-scripts.js"
   },
   "description": "A re-usable set of configurations for JS web development.",
   "author": "Craig Miller",
