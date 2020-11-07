@@ -47,7 +47,9 @@ const config = {
 				ignoreComments: true
 			}
 		],
-		'implicit-arrow-linebreak': 0
+		'implicit-arrow-linebreak': 0,
+		'object-curly-spacing': ['error', 'always'],
+		'array-bracket-spacing': ['error', 'always']
 	},
 	globals: {
 		window: true,
