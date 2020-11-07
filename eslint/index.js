@@ -1,3 +1,5 @@
+const path = require('path');
+
 const config = {
 	extends: [
 		'airbnb'
@@ -18,12 +20,12 @@ const config = {
 		sourceType: 'module',
 		ecmaFeatures: {
 			jsx: true,
-		},
+		}
 	},
 	settings: {
 		react: {
 			version: 'detect',
-		},
+		}
 	},
 	rules: {
 		'no-tabs': 0,
@@ -74,6 +76,13 @@ const config = {
 				},
 				warnOnUnsupportedTypeScriptVersion: true,
 			},
+			settings: {
+				'import/resolver': {
+					typescript: {
+						project: path.resolve(process.cwd(), 'tsconfig.json') // TODO move this local
+					}
+				}
+			},
 			plugins: ['@typescript-eslint'],
 			rules: {
 				// TypeScript's `noFallthroughCasesInSwitch` option is more robust (#6906)
@@ -105,7 +114,14 @@ const config = {
 					},
 				],
 				'no-useless-constructor': 'off',
-				'@typescript-eslint/no-useless-constructor': 'error'
+				'@typescript-eslint/no-useless-constructor': 'error',
+				'import/extensions': [
+					'error',
+					{
+						ts: 'never',
+						tsx: 'never'
+					}
+				]
 			}
 		}
 	]
