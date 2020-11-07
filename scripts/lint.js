@@ -23,7 +23,7 @@ const execute = async () => {
         path.resolve(process.cwd(), 'test'),
         path.resolve(process.cwd(), 'cypress')
     ]);
-    const formatter = await eslint.loadFormatter("stylish"); // TODO check formatter
+    const formatter = await eslint.loadFormatter('stylish');
     const resultText = formatter.format(results);
 
     console.log(resultText);
