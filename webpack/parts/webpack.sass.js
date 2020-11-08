@@ -2,8 +2,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const postCssConfig = require('../files/postcss.config');
 
-console.log(process.env.NODE_ENV); // TODO delete this
-
 const loaders = (isCssModule) => ([
     process.env.NODE_ENV === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
     {
@@ -19,7 +17,8 @@ const loaders = (isCssModule) => ([
             postcssOptions: postCssConfig
         }
     },
-    'resolve-url-loader'
+    'resolve-url-loader',
+    'sass-loader'
 ]);
 
 module.exports = {

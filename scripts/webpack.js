@@ -1,10 +1,11 @@
+process.env.NODE_ENV = 'production';
+
 const webpack = require('webpack');
 const webpackConfig = require('../webpack');
 
 const webpackCompiler = webpack(webpackConfig);
 
 console.log('Running webpack build');
-process.env.NODE_ENV = 'production';
 
 webpackCompiler.run((err, stats) => {
     if (err) {
@@ -14,12 +15,6 @@ webpackCompiler.run((err, stats) => {
         }
         return;
     }
-
-    // const info = stats.toJson();
-    //
-    // if (stats.hasErrors()) {
-    //     console.errors(info.errors);
-    // }
 
     const output = stats.toString({
         colors: true
