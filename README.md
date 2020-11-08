@@ -61,3 +61,9 @@ As can be seen, the files to include, exclude, and output directory all need to 
 For building a TypeScript library, the output directory MUST be set to `<rootDir/lib`, because that is the directory that will be cleaned up prior to the build. The following script will execute a TypeScript library build:
 
 `web-config-scripts buildTSLib`
+
+## Full Project Validation
+
+To run a combined ESLint/Unit Test suite, use this command:
+
+`web-config-scripts validate`
