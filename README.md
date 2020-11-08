@@ -29,3 +29,31 @@ If a custom jest configuration is needed, it will be searched for in the parent 
 By default, this internal jest config is used: `jest/index.js`.
 
 To run jest, use this NPM script: `web-config-scripts test`.
+
+## TypeScript
+
+TypeScript support is a bit more complicated due to limitations on the ability to setup shared `tsconfig.json` files. This is the only area where a configuration file needs to be added to your project.
+
+First, there are two configuration files that can be extended. One produces ES2015 module output, and one has commonjs module output:
+```
+<rootDir>/typescript/tsconfig.esmodule.json
+<rootDir>/typescript/tsconfig.commonjs.json
+```
+One of these must be extended in the consuming project in the file `<rootDir>/tsconfig.json`. The extended configuration must have these properties at minimum:
+```
+{
+  "extends": "@craigmiller160/web-config/typescript/tsconfig.esmodule.json",
+  "compilerOptions": {
+    "outDir": "./lib"
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "lib",
+    ".yalc"
+  ]
+}
+```
+As can be seen, the files to include, exclude, and output directory all need to be setup locally.
