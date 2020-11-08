@@ -5,9 +5,9 @@ const externalJestConfigPath = path.resolve(process.cwd(), 'jest.config.js');
 
 const getJestConfigPath = () => {
     if (fs.existsSync(externalJestConfigPath)) {
-        return require(externalJestConfigPath);
+        return externalJestConfigPath;
     }
-    return require('../jest');
+    return path.resolve(__dirname, '../jest/index.js');
 };
 
 module.exports = {

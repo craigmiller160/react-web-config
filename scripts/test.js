@@ -3,7 +3,7 @@ const { getJestConfigPath } = require('../utils/getConfigPaths');
 
 const execute = () => {
     const result = spawn.sync('jest', [
-        '-c',
+        '--config',
         getJestConfigPath()
     ], { stdio: 'inherit' });
     process.exit(result.status);
