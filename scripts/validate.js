@@ -1,8 +1,9 @@
 const spawn = require('cross-spawn');
+const path = require('path');
 
 const execute = () => {
     const lintResult = spawn.sync('node', [
-        './lint.js'
+        path.resolve(__dirname, 'lint.js')
     ], { stdio: 'inherit' });
 
     if (lintResult.status !== 0) {
@@ -11,7 +12,7 @@ const execute = () => {
     }
 
     const testResult = spawn.sync('node', [
-        './test.js'
+        path.resolve(__dirname, 'test.js')
     ], { stdio: 'inherit' });
 
     process.exit(testResult.status);

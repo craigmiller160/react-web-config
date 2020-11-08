@@ -101,7 +101,7 @@ const config = {
 			settings: {
 				'import/resolver': {
 					typescript: {
-						project: path.resolve(process.cwd(), 'tsconfig.base.json') // TODO move this local
+						project: path.resolve(process.cwd(), 'tsconfig.json') // TODO figure out a permanent solution to this if the local file is no longer required
 					}
 				}
 			},
