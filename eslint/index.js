@@ -61,7 +61,19 @@ const config = {
 				]
 			}
 		],
-		'react/destructuring-assignment': 0
+		'react/destructuring-assignment': 0,
+		'react/jsx-wrap-multilines': [
+			'error',
+			{
+				declaration: 'parens',
+				assignment: 'parens',
+				'return': 'parens',
+				arrow: 'parens',
+				condition: 'ignore',
+				logical: 'ignore',
+				prop: 'parens'
+			}
+		]
 	},
 	globals: {
 		window: true,
