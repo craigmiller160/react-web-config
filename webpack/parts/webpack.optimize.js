@@ -12,7 +12,8 @@ module.exports = {
         sideEffects: false,
         splitChunks: {
             chunks: 'all',
-            maxSize: 1000000
+            maxSize: 1000000,
+            minSize: 500000
         },
         minimizer: [
             new CssMinimizerPlugin({
