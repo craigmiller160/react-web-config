@@ -4,6 +4,8 @@ const path = require('path');
 const fs = require('fs');
 const copyLibResources = require('./utils/copyLibResources');
 
+// TODO try dynamically building the tsconfig.json before executing
+
 const execute = () => {
     fs.rmdirSync(path.resolve(process.cwd(), 'lib'), { recursive: true });
 
