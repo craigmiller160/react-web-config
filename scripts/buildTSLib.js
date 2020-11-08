@@ -2,7 +2,7 @@ const spawn = require('cross-spawn');
 const { getTsConfigPath } = require('../utils/getConfigPaths');
 const path = require('path');
 const fs = require('fs');
-const copyLibResources = require('./copyLibResources');
+const copyLibResources = require('./utils/copyLibResources');
 
 const execute = () => {
     fs.rmdirSync(path.resolve(process.cwd(), 'lib'), { recursive: true });
