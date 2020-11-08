@@ -4,6 +4,7 @@ const webpackConfig = require('../webpack');
 const webpackCompiler = webpack(webpackConfig);
 
 console.log('Running webpack build');
+process.env.NODE_ENV = 'production';
 
 webpackCompiler.run((err, stats) => {
     if (err) {
