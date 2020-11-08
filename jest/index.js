@@ -34,7 +34,7 @@ module.exports = {
         path.resolve(process.cwd(), '.yalc')
     ],
     transform: {
-        '^.+\\.jsx?$': path.resolve(__dirname, './jsTransformer.js')
-    },
-    preset: 'ts-jest' // TODO try using a transformer instead so you can cover JS & TS files
+        '^.+\\.jsx?$': path.resolve(__dirname, './jsTransformer.js'),
+        '^.+\\.tsx?$': 'ts-jest'
+    }
 };
