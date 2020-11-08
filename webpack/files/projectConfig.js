@@ -1,4 +1,6 @@
+const path = require('path');
 
 module.exports = {
-    title: 'Webpack Application'
+    title: 'Webpack Application',
+    htmlTemplatePath: path.resolve(__dirname, 'index.template.html')
 };

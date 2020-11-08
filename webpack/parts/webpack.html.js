@@ -8,7 +8,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: projectConfig.title,
             filename: 'index.html',
-            template: path.resolve(__dirname, '../files/index.template.html'),
+            template: projectConfig.htmlTemplatePath,
             minify: true
         })
     ]
