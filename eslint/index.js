@@ -51,7 +51,17 @@ const config = {
 		],
 		'implicit-arrow-linebreak': 0,
 		'object-curly-spacing': ['error', 'always'],
-		'array-bracket-spacing': ['error', 'always']
+		'array-bracket-spacing': ['error', 'always'],
+		'no-param-reassign': [
+			'error',
+			{
+				props: true,
+				ignorePropertyModificationsFor: [
+					'draft'
+				]
+			}
+		],
+		'react/destructuring-assignment': 0
 	},
 	globals: {
 		window: true,
