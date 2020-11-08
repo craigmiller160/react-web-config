@@ -94,3 +94,5 @@ Customizations for the webpack build are defined in the `<rootDir>/projectConfig
     htmlTemplatePath: 'Custom Index.html file, if desired'
 }
 ```
+
+Unlike other config files, each property is optional and the internal one does not need to be integrated into it.
