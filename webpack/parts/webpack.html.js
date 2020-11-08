@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const projectConfig = require(`${process.cwd()}/project.config`);
+const projectConfig = require(`${process.cwd()}/project.config`); // TODO rename this
 
 module.exports = {
     plugins: [

@@ -7,12 +7,14 @@ const webpackResources = require('./parts/webpack.resources');
 const webpackCss = require('./parts/webpack.css');
 const webpackSass = require('./parts/webpack.sass');
 const webpackCssExtract = require('./parts/webpack.cssExtract');
-const merge = require('webpack-merge');
+const webpackTs = require('./parts/webpack.typescript');
+const { merge } = require('webpack-merge');
 
 const parts = [
     webpackBase,
     webpackHtml,
     webpackJs,
+    webpackTs,
     webpackOptimize,
     webpackCss,
     webpackSass

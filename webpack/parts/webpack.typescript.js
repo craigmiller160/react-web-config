@@ -1,21 +1,23 @@
 const path = require('path');
-const { requireBabelConfig } = require('../../utils/requireConfigs');
+const { getTsConfigPath } = require('../../utils/getConfigPaths');
 
 module.exports = {
     resolve: {
         extensions: [
-            '.js', '.jsx', '.json'
+            '.ts', '.tsx'
         ]
     },
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
+                test: /\.tsx?$/,
                 include: path.resolve(process.cwd(), 'src'),
                 exclude: path.resolve(process.cwd(), 'node_modules'),
                 use: {
-                    loader: 'babel-loader',
-                    options: requireBabelConfig()
+                    loader: 'ts-loader',
+                    options: {
+                        configFile: getTsConfigPath()
+                    }
                 }
             }
         ]
