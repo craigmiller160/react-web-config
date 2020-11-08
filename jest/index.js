@@ -3,6 +3,9 @@ const { defaults } = require('jest-config');
 
 module.exports = {
     ...defaults,
+    roots: [
+        process.cwd()
+    ],
     setupFilesAfterEnv: [
         path.resolve(process.cwd(), 'test', 'setup.ts') // TODO migrate this to this project
     ],
@@ -20,6 +23,10 @@ module.exports = {
     ],
     testMatch: [
         path.resolve(process.cwd(), 'test/**/*.test.{js,jsx,ts,tsx}')
+    ],
+    moduleDirectories: [
+        path.resolve(process.cwd(), 'node_modules'),
+        path.resolve(process.cwd(), 'src')
     ],
     testEnvironment: 'jsdom',
     testURL: 'http://localhost',
