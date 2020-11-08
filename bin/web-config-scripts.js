@@ -13,6 +13,11 @@ const commands = [
         name: 'test',
         description: 'Run jest tests',
         file: path.resolve(__dirname, '../scripts/test.js')
+    },
+    {
+        name: 'buildTSLib',
+        description: 'Build TypeScript library',
+        file: path.resolve(__dirname, '../scripts/buildTSLib.js')
     }
 ];
 
