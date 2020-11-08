@@ -57,3 +57,7 @@ One of these must be extended in the consuming project in the file `<rootDir>/ts
 }
 ```
 As can be seen, the files to include, exclude, and output directory all need to be setup locally.
+
+For building a TypeScript library, the output directory MUST be set to `<rootDir/lib`, because that is the directory that will be cleaned up prior to the build. The following script will execute a TypeScript library build:
+
+`web-config-scripts buildTSLib`
