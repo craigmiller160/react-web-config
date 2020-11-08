@@ -4,7 +4,7 @@ const { defaults } = require('jest-config');
 module.exports = {
     ...defaults,
     setupFilesAfterEnv: [
-        '<rootDir>/test/setup.ts'
+        '<rootDir>/test/setup.ts' // TODO migrate this to this project
     ],
     collectCoverage: true,
     collectCoverageFrom: [
