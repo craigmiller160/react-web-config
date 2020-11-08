@@ -20,10 +20,15 @@ const requireBabelConfig = () => {
 };
 
 const requireProjectConfig = () => {
+    const internalConfig = require('../webpack/files/projectConfig');
     if (fs.existsSync(externalProjectConfigPath)) {
-        return require(externalProjectConfigPath);
+        const externalConfig = require(externalProjectConfigPath);
+        return {
+            ...internalConfig,
+            ...externalConfig
+        };
     }
-    return require('../webpack/files/projectConfig');
+    return internalConfig;
 };
 
 module.exports = {
