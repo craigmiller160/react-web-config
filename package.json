@@ -16,7 +16,8 @@
     "eslint",
     "polyfills",
     "webpack",
-    "scripts"
+    "scripts",
+    "utils"
   ],
   "dependencies": {
     "@babel/core": "^7.12.3",
