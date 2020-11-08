@@ -1,5 +1,7 @@
 process.env.NODE_ENV = 'production';
 
+// TODO add analyze option to this
+
 const webpack = require('webpack');
 const webpackConfig = require('../webpack');
 
