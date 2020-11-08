@@ -19,7 +19,7 @@ const execute = () => {
 
     copyLibResources();
 
-    process.exit(result.status);
+    process.exit(0);
 };
 
 execute();
