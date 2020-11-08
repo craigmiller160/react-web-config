@@ -18,6 +18,11 @@ const commands = [
         name: 'buildTSLib',
         description: 'Build TypeScript library',
         file: path.resolve(__dirname, '../scripts/buildTSLib.js')
+    },
+    {
+        name: 'validate',
+        description: 'Run all validation tasks. ESLint & Unit Tests',
+        file: path.resolve(__dirname, '../scripts/validate.js')
     }
 ];
 
