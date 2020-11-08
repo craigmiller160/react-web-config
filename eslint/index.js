@@ -52,6 +52,7 @@ const config = {
 		'implicit-arrow-linebreak': 0,
 		'object-curly-spacing': ['error', 'always'],
 		'array-bracket-spacing': ['error', 'always'],
+		'react/require-default-props': 0,
 		'no-param-reassign': [
 			'error',
 			{
@@ -62,6 +63,7 @@ const config = {
 			}
 		],
 		'react/destructuring-assignment': 0,
+		'import/prefer-default-export': 0,
 		'react/jsx-wrap-multilines': [
 			'error',
 			{
@@ -143,7 +145,9 @@ const config = {
 						ts: 'never',
 						tsx: 'never'
 					}
-				]
+				],
+				'no-empty-function': 0,
+				'@typescript-eslint/no-empty-function': 'error'
 			}
 		}
 	]
