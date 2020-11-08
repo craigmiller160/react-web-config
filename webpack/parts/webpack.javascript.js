@@ -1,13 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-
-let babelConfig;
-const customBabelConfigPath = path.resolve(process.cwd(), 'babel.config.js');
-if (fs.existsSync(customBabelConfigPath)) {
-    babelConfig = require(customBabelConfigPath);
-} else {
-    babelConfig = require(path.resolve(__dirname, '../../babel'));
-}
+const { requireBabelConfig } = require('../../utils/requireConfigs');
 
 module.exports = {
     resolve: {
@@ -23,7 +16,7 @@ module.exports = {
                 exclude: path.resolve(process.cwd(), 'node_modules'),
                 use: {
                     loader: 'babel-loader',
-                    options: babelConfig
+                    options: requireBabelConfig()
                 }
             }
         ]
