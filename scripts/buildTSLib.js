@@ -10,9 +10,9 @@ const execute = () => {
     const result = spawn.sync('tsc', [
         '--project',
         getTsConfigPath()
-    ]);
+    ], { stdio: 'inherit' });
 
-    if (result.status > 0) {
+    if (result.status !== 0) {
         process.exit(result.status);
         return;
     }
