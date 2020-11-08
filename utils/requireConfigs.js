@@ -3,6 +3,7 @@ const fs = require('fs');
 
 const externalEslintConfigPath = path.resolve(process.cwd(), 'eslint.config.js');
 const externalBabelConfigPath = path.resolve(process.cwd(), 'babel.config.js');
+const externalProjectConfigPath = path.resolve(process.cwd(), 'project.config.js');
 
 const requireEslintConfig = () => {
     if (fs.existsSync(externalEslintConfigPath)) {
@@ -18,7 +19,15 @@ const requireBabelConfig = () => {
     return require('../babel');
 };
 
+const requireProjectConfig = () => {
+    if (fs.existsSync(externalProjectConfigPath)) {
+        return require(externalProjectConfigPath);
+    }
+    return require('../webpack/files/projectConfig');
+};
+
 module.exports = {
     requireEslintConfig,
-    requireBabelConfig
+    requireBabelConfig,
+    requireProjectConfig
 };
