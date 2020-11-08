@@ -12,7 +12,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(process.cwd(), 'build'),
-        filename: 'assets/js/app.[hash:8].js',
+        filename: 'assets/js/[name].[hash:8].js',
         chunkFilename: 'assets/js/[name].[hash:8].js',
         publicPath: '/'
     },
