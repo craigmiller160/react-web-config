@@ -75,3 +75,22 @@ For building a TypeScript library, the output directory MUST be set to `<rootDir
 To run a combined ESLint/Unit Test suite, use this command:
 
 `web-config-scripts validate`
+
+## Webpack Build
+
+There is a fully constructed, robust webpack configuration in this project. It can easily be integrated into any project.
+
+## Webpack Dev Server
+
+The provided webpack conig supports the Webpack Dev Server as well.
+
+## Project Config
+
+Customizations for the webpack build are defined in the `<rootDir>/projectConfig.js` file, which can optionally be provided by the project using this library. The following properties are supported by the Project Config:
+
+```
+{
+    title: 'Title for Index.html',
+    htmlTemplatePath: 'Custom Index.html file, if desired'
+}
+```
