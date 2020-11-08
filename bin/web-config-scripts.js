@@ -23,6 +23,11 @@ const commands = [
         name: 'validate',
         description: 'Run all validation tasks. ESLint & Unit Tests',
         file: path.resolve(__dirname, '../scripts/validate.js')
+    },
+    {
+        name: 'webpack',
+        description: 'Run a webpack build',
+        file: path.resolve(__dirname, '../scripts/webpack.js')
     }
 ];
 
