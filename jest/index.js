@@ -7,7 +7,7 @@ module.exports = {
         process.cwd()
     ],
     setupFilesAfterEnv: [
-        path.resolve(process.cwd(), 'test', 'setup.ts') // TODO migrate this to this project
+        path.resolve(__dirname, 'setup.js')
     ],
     collectCoverage: true,
     collectCoverageFrom: [
