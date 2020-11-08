@@ -1,20 +1,11 @@
 const { ESLint } = require('eslint');
 const path = require('path');
-const fs = require('fs');
-
-const externalEslintConfigPath = path.resolve(process.cwd(), 'eslint.config.js');
-
-let eslintConfig;
-if (fs.existsSync(externalEslintConfigPath)) {
-    eslintConfig = require(externalEslintConfigPath);
-} else {
-    eslintConfig = require('../eslint');
-}
+const { requireEslintConfig } = require('../utils/requireConfigs');
 
 const execute = async () => {
     const eslint = new ESLint({
         errorOnUnmatchedPattern: false,
-        baseConfig: eslintConfig,
+        baseConfig: requireEslintConfig(),
         useEslintrc: false,
         fix: true,
         fixTypes: [
