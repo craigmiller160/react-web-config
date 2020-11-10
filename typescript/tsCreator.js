@@ -54,9 +54,9 @@ const createNewTsConfig = () => {
 
 const addOutDirToTsConfig = () => {
     const tsConfig = require(internalTsConfigPath);
-    if (tsConfig.version <= tsConfigVersion && !tsConfig.outDir) {
-        tsConfig.outDir = path.resolve(process.cwd(), 'lib');
-        tsConfig.declaration = true;
+    if (tsConfig.version <= tsConfigVersion && !tsConfig.compilerOptions.outDir) {
+        tsConfig.compilerOptions.outDir = path.resolve(process.cwd(), 'lib');
+        tsConfig.compilerOptions.declaration = true;
         const tsConfigString = JSON.stringify(tsConfig, null, 2);
         fs.writeFileSync(internalTsConfigPath, tsConfigString, 'utf8');
     }
