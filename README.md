@@ -18,6 +18,14 @@ Also, there is a known, strange bug with a version clash of `es-abstract`. Pleas
 }
 ```
 
+## Polyfills
+
+For applications in need of polyfills, they are provided by this package. Simply add the following line to the beginning of the `index` file of the application:
+
+```
+import '@craigmiller160/web-config/polyfills'
+```
+
 ## Eslint
 
 All eslint configuration and dependencies for both JavaScript and TypeScript are included here.
