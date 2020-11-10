@@ -28,6 +28,11 @@ const commands = [
         name: 'webpack',
         description: 'Run a webpack build',
         file: path.resolve(__dirname, '../scripts/webpack.js')
+    },
+    {
+        name: 'tsInit',
+        description: 'Initialize TypeScript before running other commands. Generally for IDE support',
+        file: path.resolve(__dirname, '../scripts/tsInit.js')
     }
 ];
 
