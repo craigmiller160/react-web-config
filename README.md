@@ -40,33 +40,13 @@ To run jest, use this NPM script: `web-config-scripts test`.
 
 ## TypeScript
 
-TypeScript support is a bit more complicated due to limitations on the ability to setup shared `tsconfig.json` files. This is the only area where a configuration file needs to be added to your project.
+TypeScript support is standard. Any command that is run will auto-generate a `tsconfig.json` file internally, and then place a `tsconfig.json` file in the root of the project that extends the internal one. If a custom `tsconfig.json` file already exists in the project, this will be overwritten.
 
-First, there are two configuration files that can be extended. One produces ES2015 module output, and one has commonjs module output:
-```
-<rootDir>/typescript/tsconfig.esmodule.json
-<rootDir>/typescript/tsconfig.commonjs.json
-```
-One of these must be extended in the consuming project in the file `<rootDir>/tsconfig.json`. The extended configuration must have these properties at minimum:
-```
-{
-  "extends": "@craigmiller160/web-config/typescript/tsconfig.esmodule.json",
-  "compilerOptions": {
-    "outDir": "./lib"
-  },
-  "include": [
-    "./src/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "lib",
-    ".yalc"
-  ]
-}
-```
-As can be seen, the files to include, exclude, and output directory all need to be setup locally.
+To force the creation of the TypeScript config, please use the following command:
 
-For building a TypeScript library, the output directory MUST be set to `<rootDir/lib`, because that is the directory that will be cleaned up prior to the build. The following script will execute a TypeScript library build:
+`web-config-scripts tsInit`
+
+For building a TypeScript library, the output directory will be `<rootDir/lib`. This is done with this command:
 
 `web-config-scripts buildTSLib`
 
