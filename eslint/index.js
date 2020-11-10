@@ -147,7 +147,22 @@ const config = {
 					}
 				],
 				'no-empty-function': 0,
-				'@typescript-eslint/no-empty-function': 'error'
+				'@typescript-eslint/no-empty-function': 'error',
+                'semi': 0,
+                '@typescript-eslint/semi': ['error', 'always'],
+                '@typescript-eslint/member-delimiter-style': [
+                    'error',
+                    {
+                        multiline: {
+                            delimiter: 'semi',
+                            requireLast: true
+                        },
+                        singleline: {
+                            delimiter: 'semi',
+                            requireLast: true
+                        }
+                    }
+                ]
 			}
 		}
 	]
