@@ -63,11 +63,13 @@ const addOutDirToTsConfig = () => {
 };
 
 const createExtendsTsConfig = () => {
-    const tsConfig = {
-        extends: './node_modules/tsconfig.json'
-    };
-    const tsConfigString = JSON.stringify(tsConfig, null, 2);
-    fs.writeFileSync(externalTsConfigPath, tsConfigString, 'utf8');
+    if (!fs.existsSync(externalTsConfigPath)) {
+        const tsConfig = {
+            extends: './node_modules/tsconfig.json'
+        };
+        const tsConfigString = JSON.stringify(tsConfig, null, 2);
+        fs.writeFileSync(externalTsConfigPath, tsConfigString, 'utf8');
+    }
 };
 
 module.exports = {
