@@ -1,8 +1,11 @@
 const { ESLint } = require('eslint');
 const path = require('path');
 const { requireEslintConfig } = require('../utils/requireConfigs');
+const tsSetup = require('../typescript/tssetup');
 
 const execute = async () => {
+    tsSetup(false);
+
     const eslint = new ESLint({
         errorOnUnmatchedPattern: false,
         baseConfig: requireEslintConfig(),

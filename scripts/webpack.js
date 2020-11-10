@@ -4,6 +4,9 @@ process.env.NODE_ENV = 'production';
 
 const webpack = require('webpack');
 const webpackConfig = require('../webpack');
+const tsSetup = require('../typescript/tssetup');
+
+tsSetup(false);
 
 const webpackCompiler = webpack(webpackConfig);
 

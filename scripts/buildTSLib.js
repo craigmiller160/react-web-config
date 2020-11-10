@@ -3,10 +3,11 @@ const { getTsConfigPath } = require('../utils/getConfigPaths');
 const path = require('path');
 const fs = require('fs');
 const copyLibResources = require('./utils/copyLibResources');
-
-// TODO try dynamically building the tsconfig.json before executing
+const tsSetup = require('../typescript/tssetup');
 
 const execute = () => {
+    tsSetup(true);
+
     fs.rmdirSync(path.resolve(process.cwd(), 'lib'), { recursive: true });
 
     const result = spawn.sync('cross-env', [
