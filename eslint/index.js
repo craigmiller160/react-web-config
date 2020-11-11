@@ -17,6 +17,7 @@
  */
 
 const path = require('path');
+const importRestrictions = require('./importRestrictions');
 
 const config = {
 	extends: [
@@ -96,22 +97,7 @@ const config = {
 		],
         'no-restricted-imports': [
             'error',
-            {
-                name: '@material-ui/core',
-                message: 'Please use more detailed import: "@material-ui/core/ITEM"'
-            },
-            {
-                name: '@material-ui/icons',
-                message: 'Please use more detailed import: "@material-ui/icons/ITEM"'
-            },
-            {
-                name: '@material-ui/lab',
-                message: 'Please use more detailed import: "@material-ui/lab/ITEM"'
-            },
-            {
-                name: 'date-fns',
-                message: 'Please use more detailed import: "date-fns/ITEM/index"'
-            }
+            ...importRestrictions
         ]
 	},
 	globals: {
