@@ -75,7 +75,16 @@ const config = {
 				logical: 'ignore',
 				prop: 'parens'
 			}
-		]
+		],
+        'no-restricted-imports': [
+            'error',
+            {
+                paths: [
+                    '@material-ui/core',
+                    '@material-ui/icons'
+                ]
+            }
+        ]
 	},
 	globals: {
 		window: true,
@@ -103,7 +112,7 @@ const config = {
 			settings: {
 				'import/resolver': {
 					typescript: {
-						project: path.resolve(process.cwd(), 'tsconfig.json') // TODO figure out a permanent solution to this if the local file is no longer required
+						project: path.resolve(process.cwd(), 'tsconfig.json')
 					}
 				}
 			},
