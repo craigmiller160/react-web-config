@@ -10,9 +10,12 @@ module.exports = {
         ],
         port: projectConfig.devServerPort,
         compress: true,
-        hot: true
+        hot: true,
+        https: projectConfig.devServerHttps
     },
     plugins: [
         new HotModuleReplacementPlugin()
     ]
 };
+
+// TODO need proxy stuff
