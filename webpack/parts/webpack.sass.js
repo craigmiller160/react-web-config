@@ -1,5 +1,4 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const path = require('path');
 const postCssConfig = require('../files/postcss.config');
 
 const loaders = (isCssModule) => ([

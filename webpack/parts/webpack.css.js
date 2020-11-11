@@ -1,5 +1,5 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const path = require('path');
+const postCssConfig = require('../files/postcss.config');
 
 const loaders = (isCssModule) => ([
     process.env.NODE_ENV === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
@@ -13,9 +13,7 @@ const loaders = (isCssModule) => ([
     {
         loader: 'postcss-loader',
         options: {
-            config: {
-                path: path.resolve(__dirname, 'postcss.config.js')
-            }
+            postcssOptions: postCssConfig
         }
     },
     'resolve-url-loader'
