@@ -1,5 +1,8 @@
 const spawn = require('cross-spawn');
 const path = require('path');
+const tsSetup = require('../typescript/tssetup');
+
+tsSetup(false);
 
 const webpackConfigPath = path.resolve(__dirname, '../webpack');
 
