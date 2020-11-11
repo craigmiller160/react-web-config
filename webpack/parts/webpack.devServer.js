@@ -18,5 +18,3 @@ module.exports = {
         new HotModuleReplacementPlugin()
     ]
 };
-
-// TODO need proxy stuff
