@@ -97,12 +97,20 @@ const config = {
         'no-restricted-imports': [
             'error',
             {
-                paths: [
-                    '@material-ui/core',
-                    '@material-ui/icons',
-                    '@material-ui/lab',
-                    'date-fns'
-                ]
+                name: '@material-ui/core',
+                message: 'Please use more detailed import: "@material-ui/core/ITEM"'
+            },
+            {
+                name: '@material-ui/icons',
+                message: 'Please use more detailed import: "@material-ui/icons/ITEM"'
+            },
+            {
+                name: '@material-ui/lab',
+                message: 'Please use more detailed import: "@material-ui/lab/ITEM"'
+            },
+            {
+                name: 'date-fns',
+                message: 'Please use more detailed import: "date-fns/ITEM/index"'
             }
         ]
 	},
