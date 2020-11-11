@@ -8,6 +8,7 @@ const webpackCss = require('./parts/webpack.css');
 const webpackSass = require('./parts/webpack.sass');
 const webpackCssExtract = require('./parts/webpack.cssExtract');
 const webpackTs = require('./parts/webpack.typescript');
+const webpackDevServer = require('./parts/webpack.devServer');
 const { merge } = require('webpack-merge');
 
 const parts = [
@@ -17,7 +18,8 @@ const parts = [
     webpackTs,
     webpackOptimize,
     webpackCss,
-    webpackSass
+    webpackSass,
+    webpackDevServer
 ];
 
 if (process.env.ANALYZE) {
