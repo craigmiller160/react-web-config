@@ -11,7 +11,8 @@ module.exports = {
         port: projectConfig.devServerPort,
         compress: true,
         hot: true,
-        https: projectConfig.devServerHttps
+        https: projectConfig.devServerHttps,
+        proxy: projectConfig.proxy
     },
     plugins: [
         new HotModuleReplacementPlugin()
