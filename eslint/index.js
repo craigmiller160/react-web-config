@@ -100,6 +100,7 @@ const config = {
                 paths: [
                     '@material-ui/core',
                     '@material-ui/icons',
+                    '@material-ui/lab',
                     'date-fns'
                 ]
             }

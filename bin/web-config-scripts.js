@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /*
  *     Web Config
  *     Copyright (C) 2020 Craig Miller
@@ -15,8 +17,6 @@
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-
-#!/usr/bin/env node
 
 const path = require('path');
 const spawn = require('cross-spawn');
