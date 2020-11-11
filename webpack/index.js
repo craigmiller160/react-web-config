@@ -16,10 +16,8 @@ const parts = [
     webpackHtml,
     webpackJs,
     webpackTs,
-    webpackOptimize,
     webpackCss,
-    webpackSass,
-    webpackDevServer
+    webpackSass
 ];
 
 if (process.env.ANALYZE) {
@@ -28,8 +26,11 @@ if (process.env.ANALYZE) {
 
 if(process.env.NODE_ENV === 'production') {
     parts.push(webpackCssExtract);
+    parts.push(webpackOptimize);
 }
 
-
+if (process.env.NODE_ENV === 'development') {
+    parts.push(webpackDevServer);
+}
 
 module.exports = merge(parts);
