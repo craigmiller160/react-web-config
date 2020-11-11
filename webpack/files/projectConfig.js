@@ -7,5 +7,5 @@ module.exports = {
     htmlTemplatePath: path.resolve(__dirname, 'index.template.html'),
     devServerPort: 3000,
     devServerHttps: false,
-    proxy: {}
+    devServerProxy: {}
 };

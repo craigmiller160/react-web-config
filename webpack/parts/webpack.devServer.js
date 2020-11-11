@@ -12,7 +12,7 @@ module.exports = {
         compress: true,
         hot: true,
         https: projectConfig.devServerHttps,
-        proxy: projectConfig.proxy
+        proxy: projectConfig.devServerProxy
     },
     plugins: [
         new HotModuleReplacementPlugin()
