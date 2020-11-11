@@ -20,7 +20,7 @@ const parts = [
     webpackSass
 ];
 
-if (process.env.ANALYZE) {
+if (process.env.ANALYZE === 'true') {
     parts.push(webpackAnalyze);
 }
 
