@@ -1,6 +1,6 @@
 {
   "name": "@craigmiller160/web-config",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "sideEffects": [
     "./polyfills/index.js"
   ],
@@ -19,7 +19,8 @@
     "scripts",
     "utils",
     "jest",
-    "typescript"
+    "typescript",
+    "bin"
   ],
   "dependencies": {
     "@babel/core": "^7.12.3",
