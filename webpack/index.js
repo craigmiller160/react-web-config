@@ -35,7 +35,8 @@ const parts = [
     webpackJs,
     webpackTs,
     webpackCss,
-    webpackSass
+    webpackSass,
+    webpackResources
 ];
 
 if (process.env.ANALYZE === 'true') {

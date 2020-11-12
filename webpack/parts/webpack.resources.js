@@ -63,7 +63,10 @@ module.exports = {
     plugins: [
         new CopyWebpackPlugin({
             patterns: [
-                { from: path.resolve(process.cwd(), 'public') }
+                {
+                    from: path.resolve(process.cwd(), 'public'),
+                    to: path.resolve(process.cwd(), 'build')
+                }
             ]
         })
     ]
