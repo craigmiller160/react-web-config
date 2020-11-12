@@ -19,7 +19,8 @@
     "scripts",
     "utils",
     "jest",
-    "typescript"
+    "typescript",
+    "bin"
   ],
   "dependencies": {
     "@babel/core": "^7.12.3",
