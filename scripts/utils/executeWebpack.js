@@ -16,13 +16,32 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const createPresetEnv = (modules, corejs) => ([
-    '@babel/preset-env',
-    {
-        modules,
-        usage: 'entry',
-        corejs
-    }
-]);
+const webpack = require('webpack');
+const webpackConfig = require('../../webpack');
+const tsSetup = require('../../typescript/tssetup');
 
-module.exports = createPresetEnv;
+const execute = () => {
+    tsSetup(false);
+
+    const webpackCompiler = webpack(webpackConfig);
+
+    console.log('Running webpack build');
+
+    webpackCompiler.run((err, stats) => {
+        if (err) {
+            console.error(err.stack || err);
+            if (err.details) {
+                console.error(err.details);
+            }
+            return;
+        }
+
+        const output = stats.toString({
+            colors: true
+        });
+
+        console.log(output);
+    });
+};
+
+module.exports = execute;

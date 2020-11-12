@@ -16,13 +16,13 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const createPresetEnv = (modules, corejs) => ([
-    '@babel/preset-env',
-    {
-        modules,
-        usage: 'entry',
-        corejs
-    }
-]);
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-module.exports = createPresetEnv;
+module.exports = {
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: 'assets/css/[name].[contenthash].css',
+            chunkFilename: 'assets/css/[name].[contenthash].css'
+        })
+    ]
+};

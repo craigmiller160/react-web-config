@@ -16,13 +16,26 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const createPresetEnv = (modules, corejs) => ([
-    '@babel/preset-env',
-    {
-        modules,
-        usage: 'entry',
-        corejs
-    }
-]);
+const path = require('path');
+const { requireBabelConfig } = require('../../utils/requireConfigs');
 
-module.exports = createPresetEnv;
+module.exports = {
+    resolve: {
+        extensions: [
+            '.js', '.jsx', '.json'
+        ]
+    },
+    module: {
+        rules: [
+            {
+                test: /\.jsx?$/,
+                include: path.resolve(process.cwd(), 'src'),
+                exclude: path.resolve(process.cwd(), 'node_modules'),
+                use: {
+                    loader: 'babel-loader',
+                    options: requireBabelConfig()
+                }
+            }
+        ]
+    }
+};

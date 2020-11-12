@@ -16,13 +16,14 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const createPresetEnv = (modules, corejs) => ([
-    '@babel/preset-env',
-    {
-        modules,
-        usage: 'entry',
-        corejs
-    }
-]);
+const { createNewTsConfig, createExtendsTsConfig, addOutDirToTsConfig } = require('./tsCreator');
 
-module.exports = createPresetEnv;
+const setup = (addOutDir) => {
+    createNewTsConfig();
+    createExtendsTsConfig();
+    if (addOutDir) {
+        addOutDirToTsConfig();
+    }
+};
+
+module.exports = setup;

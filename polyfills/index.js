@@ -16,13 +16,5 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const createPresetEnv = (modules, corejs) => ([
-    '@babel/preset-env',
-    {
-        modules,
-        usage: 'entry',
-        corejs
-    }
-]);
-
-module.exports = createPresetEnv;
+import 'core-js';
+import 'regenerator-runtime/runtime';

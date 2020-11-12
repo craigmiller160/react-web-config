@@ -16,13 +16,23 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const createPresetEnv = (modules, corejs) => ([
-    '@babel/preset-env',
-    {
-        modules,
-        usage: 'entry',
-        corejs
-    }
-]);
+const path = require('path');
+const { HotModuleReplacementPlugin } = require('webpack');
+const { requireProjectConfig } = require('../../utils/requireConfigs');
+const projectConfig = requireProjectConfig();
 
-module.exports = createPresetEnv;
+module.exports = {
+    devServer: {
+        contentBase: [
+            path.resolve(process.cwd(), 'build')
+        ],
+        port: projectConfig.devServerPort,
+        compress: true,
+        hot: true,
+        https: projectConfig.devServerHttps,
+        proxy: projectConfig.devServerProxy
+    },
+    plugins: [
+        new HotModuleReplacementPlugin()
+    ]
+};

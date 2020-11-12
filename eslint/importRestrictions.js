@@ -16,13 +16,21 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const createPresetEnv = (modules, corejs) => ([
-    '@babel/preset-env',
+module.exports = [
     {
-        modules,
-        usage: 'entry',
-        corejs
+        name: '@material-ui/core',
+        message: 'Please use more detailed import: "@material-ui/core/ITEM"'
+    },
+    {
+        name: '@material-ui/icons',
+        message: 'Please use more detailed import: "@material-ui/icons/ITEM"'
+    },
+    {
+        name: '@material-ui/lab',
+        message: 'Please use more detailed import: "@material-ui/lab/ITEM"'
+    },
+    {
+        name: 'date-fns',
+        message: 'Please use more detailed import: "date-fns/ITEM/index"'
     }
-]);
-
-module.exports = createPresetEnv;
+];

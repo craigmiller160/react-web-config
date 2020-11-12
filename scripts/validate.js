@@ -16,13 +16,28 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const createPresetEnv = (modules, corejs) => ([
-    '@babel/preset-env',
-    {
-        modules,
-        usage: 'entry',
-        corejs
-    }
-]);
+const spawn = require('cross-spawn');
+const path = require('path');
 
-module.exports = createPresetEnv;
+const execute = () => {
+    console.log('Running ESLint');
+
+    const lintResult = spawn.sync('node', [
+        path.resolve(__dirname, 'lint.js')
+    ], { stdio: 'inherit' });
+
+    if (lintResult.status !== 0) {
+        process.exit(lintResult.status);
+        return;
+    }
+
+    console.log('Running Unit Tests');
+
+    const testResult = spawn.sync('node', [
+        path.resolve(__dirname, 'test.js')
+    ], { stdio: 'inherit' });
+
+    process.exit(testResult.status);
+};
+
+execute();

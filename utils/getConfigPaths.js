@@ -16,13 +16,22 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const createPresetEnv = (modules, corejs) => ([
-    '@babel/preset-env',
-    {
-        modules,
-        usage: 'entry',
-        corejs
-    }
-]);
+const path = require('path');
+const fs = require('fs');
 
-module.exports = createPresetEnv;
+const externalJestConfigPath = path.resolve(process.cwd(), 'jest.config.js');
+const externalTsConfigPath = path.resolve(process.cwd(), 'tsconfig.json');
+
+const getJestConfigPath = () => {
+    if (fs.existsSync(externalJestConfigPath)) {
+        return externalJestConfigPath;
+    }
+    return path.resolve(__dirname, '../jest/index.js');
+};
+
+const getTsConfigPath = () => externalTsConfigPath;
+
+module.exports = {
+    getJestConfigPath,
+    getTsConfigPath
+};

@@ -1,1 +1,0 @@
-process.on('unhandledRejection', (error) => console.log('Unhandled Promise Rejection', error));

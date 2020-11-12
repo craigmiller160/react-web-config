@@ -1,0 +1,39 @@
+<!--
+  ~     Web Config
+  ~     Copyright (C) 2020 Craig Miller
+  ~
+  ~     This program is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     This program is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title><%= htmlWebpackPlugin.options.title %></title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8" />
+        <link rel="shortcut icon" href="<%= htmlWebpackPlugin.files.favicon %>" />
+
+        <% for (var css in htmlWebpackPlugin.files.css) { %>
+        <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css[css] %>" />
+    <% } %>
+</head>
+<body>
+    <noscript>This project requires JavaScript</noscript>
+    <div id="root"></div>
+
+    <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+    <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+<% } %>
+</body>
+</html>

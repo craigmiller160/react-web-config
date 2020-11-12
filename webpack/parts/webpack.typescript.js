@@ -16,13 +16,28 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const createPresetEnv = (modules, corejs) => ([
-    '@babel/preset-env',
-    {
-        modules,
-        usage: 'entry',
-        corejs
-    }
-]);
+const path = require('path');
+const { getTsConfigPath } = require('../../utils/getConfigPaths');
 
-module.exports = createPresetEnv;
+module.exports = {
+    resolve: {
+        extensions: [
+            '.ts', '.tsx'
+        ]
+    },
+    module: {
+        rules: [
+            {
+                test: /\.tsx?$/,
+                include: path.resolve(process.cwd(), 'src'),
+                exclude: path.resolve(process.cwd(), 'node_modules'),
+                use: {
+                    loader: 'ts-loader',
+                    options: {
+                        configFile: getTsConfigPath()
+                    }
+                }
+            }
+        ]
+    }
+};

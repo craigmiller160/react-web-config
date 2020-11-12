@@ -16,13 +16,14 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const createPresetEnv = (modules, corejs) => ([
-    '@babel/preset-env',
-    {
-        modules,
-        usage: 'entry',
-        corejs
-    }
-]);
+const postcssFlexbugsFixes = require('postcss-flexbugs-fixes');
+const postcssPresetEnv = require('postcss-preset-env');
+const postcssImport = require('postcss-import');
 
-module.exports = createPresetEnv;
+module.exports = {
+    plugins: [
+        postcssImport,
+        postcssFlexbugsFixes,
+        postcssPresetEnv({ stage: 3 })
+    ]
+};

@@ -16,13 +16,20 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const createPresetEnv = (modules, corejs) => ([
-    '@babel/preset-env',
-    {
-        modules,
-        usage: 'entry',
-        corejs
-    }
-]);
+const spawn = require('cross-spawn');
+const { getJestConfigPath } = require('../utils/getConfigPaths');
+const tsSetup = require('../typescript/tssetup');
 
-module.exports = createPresetEnv;
+const execute = () => {
+    tsSetup(false);
+
+    const result = spawn.sync('cross-env', [
+        'NODE_ENV=test',
+        'jest',
+        '--config',
+        getJestConfigPath()
+    ], { stdio: 'inherit' });
+    process.exit(result.status);
+};
+
+execute();

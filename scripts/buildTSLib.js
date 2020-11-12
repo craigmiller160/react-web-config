@@ -16,13 +16,33 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const createPresetEnv = (modules, corejs) => ([
-    '@babel/preset-env',
-    {
-        modules,
-        usage: 'entry',
-        corejs
-    }
-]);
+const spawn = require('cross-spawn');
+const { getTsConfigPath } = require('../utils/getConfigPaths');
+const path = require('path');
+const fs = require('fs');
+const copyLibResources = require('./utils/copyLibResources');
+const tsSetup = require('../typescript/tssetup');
 
-module.exports = createPresetEnv;
+const execute = () => {
+    tsSetup(true);
+
+    fs.rmdirSync(path.resolve(process.cwd(), 'lib'), { recursive: true });
+
+    const result = spawn.sync('cross-env', [
+        'NODE_ENV=production',
+        'tsc',
+        '--project',
+        getTsConfigPath()
+    ], { stdio: 'inherit' });
+
+    if (result.status !== 0) {
+        process.exit(result.status);
+        return;
+    }
+
+    copyLibResources();
+
+    process.exit(0);
+};
+
+execute();

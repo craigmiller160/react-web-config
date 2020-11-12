@@ -16,13 +16,23 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const createPresetEnv = (modules, corejs) => ([
-    '@babel/preset-env',
-    {
-        modules,
-        usage: 'entry',
-        corejs
-    }
-]);
+const spawn = require('cross-spawn');
+const path = require('path');
+const tsSetup = require('../typescript/tssetup');
 
-module.exports = createPresetEnv;
+tsSetup(false);
+
+const webpackConfigPath = path.resolve(__dirname, '../webpack');
+
+const result = spawn.sync(
+    'cross-env',
+    [
+        'NODE_ENV=development',
+        'webpack-dev-server',
+        '--config',
+        webpackConfigPath
+    ],
+    { stdio: 'inherit' }
+);
+
+process.exit(result.status);

@@ -16,13 +16,11 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const createPresetEnv = (modules, corejs) => ([
-    '@babel/preset-env',
-    {
-        modules,
-        usage: 'entry',
-        corejs
-    }
-]);
+const { configure } = require('enzyme');
+const Adapter = require('enzyme-adapter-react-16');
 
-module.exports = createPresetEnv;
+configure({ adapter: new Adapter() });
+
+beforeEach(() => {
+    jest.clearAllMocks();
+});
