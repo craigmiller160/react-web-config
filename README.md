@@ -66,11 +66,23 @@ To run a combined ESLint/Unit Test suite, use this command:
 
 ## Webpack Build
 
-There is a fully constructed, robust webpack configuration in this project. It can easily be integrated into any project.
+There is a fully constructed, robust webpack configuration in this project. It can easily be integrated into any project. It is fully optimized and good to go.
+
+To run a webpack build, use the following script:
+
+`web-config-scripts webpack`
+
+To run a webpack build with the Analyzer enabled, use the following script:
+
+`web-config-scripts webpackAnalyze`
 
 ## Webpack Dev Server
 
-The provided webpack conig supports the Webpack Dev Server as well.
+The provided webpack config supports the Webpack Dev Server as well. It is already fully configured, outside of a few options through the Project Config.
+
+To run the dev server, use the following script:
+
+`web-config-scripts devServer`
 
 ## Project Config
 
@@ -78,9 +90,14 @@ Customizations for the webpack build are defined in the `<rootDir>/projectConfig
 
 ```
 {
-    title: 'Title for Index.html',
-    htmlTemplatePath: 'Custom Index.html file, if desired'
+    title: 'Webpack Application',
+    htmlTemplatePath: 'index.template.html',
+    devServerPort: 3000,
+    devServerHttps: false,
+    devServerProxy: {}
 }
 ```
 
-Unlike other config files, each property is optional and the internal one does not need to be integrated into it.
+Unlike other config files, each property is optional. The default values shown above will be used if any property is not provided.
+
+For the `devServerProxy` configuration, an object matching the definition of the Webapck Dev Server's proxy settings is expected.
