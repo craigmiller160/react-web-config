@@ -61,6 +61,11 @@ const commands = [
         name: 'devServer',
         description: 'Run the webpack dev server',
         file: path.resolve(__dirname, '../scripts/devServer.js')
+    },
+    {
+        name: 'prepDeploy',
+        description: 'Take the built application and prep it for deployment',
+        file: path.resolve(__dirname, '../scripts/prepDeploy.js')
     }
 ];
 
