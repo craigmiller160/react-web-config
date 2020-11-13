@@ -18,8 +18,6 @@
 
 const createPresetEnv = require('./utils/createPresetEnv');
 
-const corejs = '3.7.0';
-
 const config = {
     presets: [
         '@babel/preset-react'
@@ -28,24 +26,24 @@ const config = {
         [
             '@babel/plugin-transform-runtime',
             {
-                corejs
+                corejs: 3
             }
         ]
     ],
     env: {
         development: {
             presets: [
-                createPresetEnv(false, corejs)
+                createPresetEnv(false)
             ]
         },
         production: {
             presets: [
-                createPresetEnv(false, corejs)
+                createPresetEnv(false)
             ]
         },
         test: {
             presets: [
-                createPresetEnv('commonjs', corejs)
+                createPresetEnv('commonjs')
             ],
             plugins: [
                 'transform-es2015-modules-commonjs'

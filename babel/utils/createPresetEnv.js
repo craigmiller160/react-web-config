@@ -16,12 +16,12 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const createPresetEnv = (modules, corejs) => ([
+const createPresetEnv = (modules) => ([
     '@babel/preset-env',
     {
         modules,
-        usage: 'entry',
-        corejs
+        useBuiltIns: 'entry',
+        corejs: 3
     }
 ]);
 

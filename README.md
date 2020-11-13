@@ -10,11 +10,12 @@ Other than adding this library, there are a few rules for any project using this
 1. All test code must be in the `<rootDir>/test` directory, and must end with `.test.{ext}` suffix.
 1. If Cypress is used, it must be in the `<rootDir/cypress` directory.
 
-Also, there is a known, strange bug with a version clash of `es-abstract`. Please add the following resolution to the `package.json` to fix it:
+Also, there is a known, strange bug with a version clash of `es-abstract`. Please add the following resolution to the `package.json` to fix it. Also, there's a bug with `@babel/runtime` and `webpack`, so you must enforce that version as well.
 
 ```
 "resolutions": {
-    "es-abstract": "^1.18.0-next.1"
+    "es-abstract": "^1.18.0-next.1",
+    "@babel/runtime": "^7.12.5"
 }
 ```
 
