@@ -58,6 +58,14 @@ For building a TypeScript library, the output directory will be `<rootDir/lib`. 
 
 `web-config-scripts buildTSLib`
 
+If you do not want a `tsconfig.json` generated for your project, add the following property to your `package.json`:
+
+```
+{
+    "noTsconfig": true
+}
+```
+
 ## Full Project Validation
 
 To run a combined ESLint/Unit Test suite, use this command:
