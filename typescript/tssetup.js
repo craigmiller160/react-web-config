@@ -17,12 +17,17 @@
  */
 
 const { createNewTsConfig, createExtendsTsConfig, addOutDirToTsConfig } = require('./tsCreator');
+const path = require('path');
 
 const setup = (addOutDir) => {
-    createNewTsConfig();
-    createExtendsTsConfig();
-    if (addOutDir) {
-        addOutDirToTsConfig();
+    const packageJsonPath = path.resolve(process.cwd(), 'package.json');
+    const packageJson = require(packageJsonPath);
+    if (!packageJson.noTsconfig) {
+        createNewTsConfig();
+        createExtendsTsConfig();
+        if (addOutDir) {
+            addOutDirToTsConfig();
+        }
     }
 };
 
