@@ -30,7 +30,10 @@ module.exports = {
         compress: true,
         hot: true,
         https: projectConfig.devServerHttps,
-        proxy: projectConfig.devServerProxy
+        proxy: projectConfig.devServerProxy,
+        historyApiFallback: {
+            index: '/'
+        }
     },
     plugins: [
         new HotModuleReplacementPlugin()
