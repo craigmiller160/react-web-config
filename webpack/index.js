@@ -37,8 +37,7 @@ const parts = [
     webpackTs,
     webpackCss,
     webpackSass,
-    webpackResources,
-    webpackSourceMap
+    webpackResources
 ];
 
 if (process.env.ANALYZE === 'true') {
@@ -48,6 +47,8 @@ if (process.env.ANALYZE === 'true') {
 if(process.env.NODE_ENV === 'production') {
     parts.push(webpackCssExtract);
     parts.push(webpackOptimize);
+} else {
+    parts.push(webpackSourceMap);
 }
 
 if (process.env.NODE_ENV === 'development') {
