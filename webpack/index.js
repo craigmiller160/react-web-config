@@ -27,6 +27,7 @@ const webpackSass = require('./parts/webpack.sass');
 const webpackCssExtract = require('./parts/webpack.cssExtract');
 const webpackTs = require('./parts/webpack.typescript');
 const webpackDevServer = require('./parts/webpack.devServer');
+const webpackSourceMap = require('./parts/webpack.sourceMap');
 const { merge } = require('webpack-merge');
 
 const parts = [
@@ -46,6 +47,8 @@ if (process.env.ANALYZE === 'true') {
 if(process.env.NODE_ENV === 'production') {
     parts.push(webpackCssExtract);
     parts.push(webpackOptimize);
+} else {
+    parts.push(webpackSourceMap);
 }
 
 if (process.env.NODE_ENV === 'development') {

@@ -32,12 +32,18 @@ const loaders = (isCssModule) => ([
         loader: 'css-loader',
         options: {
             importLoaders: process.env.NODE_ENV === 'production' ? 3 : 2,
-            modules: isCssModule
+            modules: isCssModule,
+            sourceMap: process.env.NODE_ENV !== 'production'
         }
     },
     process.env.NODE_ENV === 'production' ? postCssLoader : null,
     'resolve-url-loader',
-    'sass-loader'
+    {
+        loader: 'sass-loader',
+        options: {
+            sourceMap: process.env.NODE_ENV !== 'production'
+        }
+    }
 ].filter((loader) => loader));
 
 module.exports = {

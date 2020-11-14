@@ -21,8 +21,8 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
     performance: {
-        maxEntrypointSize: 3000000,
-        maxAssetSize: 3000000
+        maxEntrypointSize: 1000000,
+        maxAssetSize: 1000000
     },
     optimization: {
         usedExports: process.env.NODE_ENV === 'production',

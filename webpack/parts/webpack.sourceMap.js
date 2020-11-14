@@ -16,26 +16,6 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const path = require('path');
-const { HotModuleReplacementPlugin } = require('webpack');
-const { requireProjectConfig } = require('../../utils/requireConfigs');
-const projectConfig = requireProjectConfig();
-
 module.exports = {
-    devServer: {
-        contentBase: [
-            path.resolve(process.cwd(), 'build')
-        ],
-        port: projectConfig.devServerPort,
-        compress: true,
-        hot: true,
-        https: projectConfig.devServerHttps,
-        proxy: projectConfig.devServerProxy,
-        historyApiFallback: {
-            index: '/'
-        }
-    },
-    plugins: [
-        new HotModuleReplacementPlugin()
-    ]
+    devtool: 'source-map'
 };
