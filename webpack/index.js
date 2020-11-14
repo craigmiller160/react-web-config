@@ -27,6 +27,7 @@ const webpackSass = require('./parts/webpack.sass');
 const webpackCssExtract = require('./parts/webpack.cssExtract');
 const webpackTs = require('./parts/webpack.typescript');
 const webpackDevServer = require('./parts/webpack.devServer');
+const webpackSourceMap = require('./parts/webpack.sourceMap');
 const { merge } = require('webpack-merge');
 
 const parts = [
@@ -36,7 +37,8 @@ const parts = [
     webpackTs,
     webpackCss,
     webpackSass,
-    webpackResources
+    webpackResources,
+    webpackSourceMap
 ];
 
 if (process.env.ANALYZE === 'true') {
