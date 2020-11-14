@@ -17,6 +17,7 @@
  */
 
 const createPresetEnv = require('./utils/createPresetEnv');
+const transformImports = require('./utils/transformImports');
 
 const config = {
     presets: [
@@ -28,6 +29,10 @@ const config = {
             {
                 corejs: 3
             }
+        ],
+        [
+            'babel-plugin-transform-imports',
+            transformImports
         ]
     ],
     env: {
