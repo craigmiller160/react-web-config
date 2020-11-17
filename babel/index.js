@@ -51,7 +51,7 @@ const config = {
                 createPresetEnv('commonjs')
             ],
             plugins: [
-                'transform-es2015-modules-commonjs'
+                '@babel/plugin-transform-modules-commonjs'
             ]
         }
     }

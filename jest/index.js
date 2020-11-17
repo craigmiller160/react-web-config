@@ -18,6 +18,7 @@
 
 const path = require('path');
 const { defaults } = require('jest-config');
+const libsToRecompile = require('./libsToRecompile');
 
 module.exports = {
     ...defaults,
@@ -50,6 +51,9 @@ module.exports = {
     testURL: 'http://localhost',
     modulePathIgnorePatterns: [
         path.resolve(process.cwd(), '.yalc')
+    ],
+    transformIgnorePatterns: [
+        `node_modules/(?!${libsToRecompile.join('|')}).*$`
     ],
     transform: {
         '^.+\\.jsx?$': path.resolve(__dirname, './jsTransformer.js'),
