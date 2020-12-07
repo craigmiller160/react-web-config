@@ -95,7 +95,7 @@ To run the dev server, use the following script:
 
 ## Project Config
 
-Customizations for the webpack build are defined in the `<rootDir>/project.config.js` file, which can optionally be provided by the project using this library. The following properties are supported by the Project Config:
+Customizations for the webpack build are defined in the `<rootDir>/project.config.js` file, which can optionally be provided by the project using this library. The following properties are supported by the Project Config. Their default values are shown here. These values are used if they are not provided.
 
 ```
 {
@@ -103,7 +103,8 @@ Customizations for the webpack build are defined in the `<rootDir>/project.confi
     htmlTemplatePath: 'index.template.html',
     devServerPort: 3000,
     devServerHttps: false,
-    devServerProxy: {}
+    devServerProxy: {},
+    publicPath: '/
 }
 ```
 
