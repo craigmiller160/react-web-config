@@ -32,7 +32,7 @@ module.exports = {
         https: projectConfig.devServerHttps,
         proxy: projectConfig.devServerProxy,
         historyApiFallback: {
-            index: '/'
+            index: projectConfig.publicPath
         }
     },
     plugins: [

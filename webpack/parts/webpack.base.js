@@ -18,6 +18,8 @@
 
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { requireProjectConfig } = require('../../utils/requireConfigs');
+const projectConfig = requireProjectConfig();
 
 module.exports = {
     mode: process.env.NODE_ENV,
@@ -32,7 +34,7 @@ module.exports = {
         path: path.resolve(process.cwd(), 'build'),
         filename: 'assets/js/[name].[contenthash].js',
         chunkFilename: 'assets/js/[name].[contenthash].js',
-        publicPath: '/'
+        publicPath: projectConfig.publicPath
     },
     plugins: [
         new CleanWebpackPlugin()
