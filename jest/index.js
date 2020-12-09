@@ -55,6 +55,9 @@ module.exports = {
     transformIgnorePatterns: [
         `node_modules/(?!${libsToRecompile.join('|')}).*$`
     ],
+    snapshotSerializers: [
+        'enzyme-to-json/serializer'
+    ],
     transform: {
         '^.+\\.jsx?$': path.resolve(__dirname, './jsTransformer.js'),
         '^.+\\.tsx?$': 'ts-jest'
