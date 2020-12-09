@@ -38,7 +38,8 @@ module.exports = {
         `!${path.resolve(process.cwd(), 'src/**/*.d.ts')}`
     ],
     moduleNameMapper: {
-        '.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'identity-obj-proxy'
+        '.+\\.(css|scss)': 'identity-obj-proxy',
+        '.+\\.png$': path.resolve(__dirname, 'fileMock.js')
     },
     modulePaths: [
         path.resolve(process.cwd(), 'src')
