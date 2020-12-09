@@ -20,7 +20,7 @@ const path = require('path');
 
 module.exports = {
     title: 'Webpack Application',
-    htmlTemplatePath: path.resolve(__dirname, 'index.template.html'),
+    htmlTemplatePath: path.resolve(__dirname, 'webpack/files/index.template.html'),
     devServerPort: 3000,
     devServerHttps: false,
     devServerProxy: {},

@@ -27,7 +27,8 @@ module.exports = {
             title: projectConfig.title,
             filename: 'index.html',
             template: projectConfig.htmlTemplatePath,
-            minify: true
+            minify: true,
+            showErrors: true
         })
     ]
 };
