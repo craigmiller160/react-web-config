@@ -19,6 +19,8 @@
 const path = require('path');
 const { defaults } = require('jest-config');
 const libsToRecompile = require('./libsToRecompile');
+const { requireProjectConfig } = require('../utils/requireConfigs');
+const projectConfig = requireProjectConfig();
 
 module.exports = {
     ...defaults,
@@ -26,7 +28,8 @@ module.exports = {
         process.cwd()
     ],
     setupFilesAfterEnv: [
-        path.resolve(__dirname, 'setup.js')
+        path.resolve(__dirname, 'setup.js'),
+        ...projectConfig.jestSetupFiles
     ],
     collectCoverage: true,
     collectCoverageFrom: [

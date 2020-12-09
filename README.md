@@ -104,7 +104,8 @@ Customizations for the webpack build are defined in the `<rootDir>/project.confi
     devServerPort: 3000,
     devServerHttps: false,
     devServerProxy: {},
-    publicPath: '/
+    publicPath: '/',
+    jestSetupFiles: []
 }
 ```
 

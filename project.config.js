@@ -24,5 +24,6 @@ module.exports = {
     devServerPort: 3000,
     devServerHttps: false,
     devServerProxy: {},
-    publicPath: '/'
+    publicPath: '/',
+    jestSetupFiles: []
 };
