@@ -35,7 +35,7 @@ module.exports = {
         `!${path.resolve(process.cwd(), 'src/**/*.d.ts')}`
     ],
     moduleNameMapper: {
-        '\\.(scss)$': 'identity-obj-proxy'
+        '.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'identity-obj-proxy'
     },
     modulePaths: [
         path.resolve(process.cwd(), 'src')
