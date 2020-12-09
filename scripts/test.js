@@ -23,11 +23,14 @@ const tsSetup = require('../typescript/tssetup');
 const execute = () => {
     tsSetup(false);
 
+    const otherArgs = process.argv.slice(2);
+
     const result = spawn.sync('cross-env', [
         'NODE_ENV=test',
         'jest',
         '--config',
-        getJestConfigPath()
+        getJestConfigPath(),
+        ...otherArgs,
     ], { stdio: 'inherit' });
     process.exit(result.status);
 };
