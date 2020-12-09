@@ -83,7 +83,9 @@ const execute = () => {
         throw new Error(`Invalid selection: ${selected}`);
     }
 
-    const result = spawn.sync('node', [command.file], { stdio: 'inherit' });
+    const otherArgs = process.argv.slice(3);
+
+    const result = spawn.sync('node', [command.file, ...otherArgs], { stdio: 'inherit' });
     process.exit(result.status);
 };
 
