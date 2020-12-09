@@ -18,12 +18,14 @@
 
 const createPresetEnv = require('./utils/createPresetEnv');
 const transformImports = require('./utils/transformImports');
+const languageExtensions = require('./utils/languageExtensions');
 
 const config = {
     presets: [
         '@babel/preset-react'
     ],
     plugins: [
+        ...languageExtensions,
         [
             '@babel/plugin-transform-runtime',
             {
