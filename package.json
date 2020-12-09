@@ -20,7 +20,8 @@
     "utils",
     "jest",
     "typescript",
-    "bin"
+    "bin",
+    "project.config.js"
   ],
   "dependencies": {
     "@babel/core": "^7.12.3",
