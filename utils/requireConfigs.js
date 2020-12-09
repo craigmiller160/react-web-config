@@ -38,7 +38,7 @@ const requireBabelConfig = () => {
 };
 
 const requireProjectConfig = () => {
-    const internalConfig = require('../webpack/files/project.config');
+    const internalConfig = require(path.resolve(__dirname, '../project.config.js'));
     if (fs.existsSync(externalProjectConfigPath)) {
         const externalConfig = require(externalProjectConfigPath);
         return {
