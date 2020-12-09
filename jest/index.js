@@ -41,7 +41,7 @@ module.exports = {
         path.resolve(process.cwd(), 'src')
     ],
     testMatch: [
-        path.resolve(process.cwd(), 'test/**/*.test.{js,jsx,ts,tsx}')
+        path.resolve(process.cwd(), 'test/**/*.{test,Spec}.{js,jsx,ts,tsx}')
     ],
     moduleDirectories: [
         path.resolve(process.cwd(), 'node_modules'),
