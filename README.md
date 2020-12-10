@@ -1,4 +1,4 @@
-# web-config
+# react-web-config
 
 A utility library containing configuration and setup code for webapps.
 
