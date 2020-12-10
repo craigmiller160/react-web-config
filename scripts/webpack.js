@@ -18,4 +18,5 @@
 
 process.env.NODE_ENV = 'production';
 
+console.log('Executing Webpack Build');
 require('./utils/executeWebpack')();

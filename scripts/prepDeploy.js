@@ -21,6 +21,8 @@ const fs = require('fs');
 const path = require('path');
 const packageJson = require(path.resolve(process.cwd(), 'package.json'));
 
+console.log('Preparing Deployment');
+
 const cwd = process.cwd();
 const version = packageJson.version;
 const name = packageJson.name.replace('@craigmiller160/', '');

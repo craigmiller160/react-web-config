@@ -24,6 +24,7 @@ const copyLibResources = require('./utils/copyLibResources');
 const tsSetup = require('../typescript/tssetup');
 
 const execute = () => {
+    console.log('Building TypeScript Library');
     tsSetup(true);
 
     fs.rmdirSync(path.resolve(process.cwd(), 'lib'), { recursive: true });

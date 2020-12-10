@@ -21,6 +21,7 @@ const { getJestConfigPath } = require('../utils/getConfigPaths');
 const tsSetup = require('../typescript/tssetup');
 
 const execute = () => {
+    console.log('Running Unit Tests');
     tsSetup(false);
 
     const otherArgs = process.argv.slice(2);

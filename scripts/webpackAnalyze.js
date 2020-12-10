@@ -19,4 +19,5 @@
 process.env.NODE_ENV = 'production';
 process.env.ANALYZE = 'true';
 
+console.log('Executing Webpack Build With Analyzer');
 require('./utils/executeWebpack')();
