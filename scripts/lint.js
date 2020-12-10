@@ -22,6 +22,7 @@ const { requireEslintConfig } = require('../utils/requireConfigs');
 const tsSetup = require('../typescript/tssetup');
 
 const execute = async () => {
+    console.log('Running eslint validation');
     tsSetup(false);
 
     const eslint = new ESLint({
