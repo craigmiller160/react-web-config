@@ -24,7 +24,7 @@ Also, there is a known, strange bug with a version clash of `es-abstract`. Pleas
 For applications in need of polyfills, they are provided by this package. Simply add the following line to the beginning of the `index` file of the application:
 
 ```
-import '@craigmiller160/web-config/polyfills'
+import '@craigmiller160/react-web-config/polyfills'
 ```
 
 ## Eslint
@@ -49,7 +49,11 @@ To run jest, use this NPM script: `web-config-scripts test`.
 
 ## TypeScript
 
-TypeScript support is standard. Any command that is run will auto-generate a `tsconfig.json` file internally, and then place a `tsconfig.json` file in the root of the project that extends the internal one. If a custom `tsconfig.json` file already exists in the project, this will be overwritten.
+TypeScript support is standard. While the goal of this overall project is to internally manage (and hide from the user) as much of the configuration as possible, this has at times conflicted with IDE support. TypeScript is a situation where this has occurred, so here is how it is handled.
+
+This library will create a `tsconfig.base.json` file in the root of the project. This file will be managed by the library, and will be at times updated with any changes to the TypeScript settings that are necessary.
+
+Next to it will be a `tsconfig.json` file. This will extend `tsconfig.base.json`, and is available for you to override any settings that you want.
 
 To force the creation of the TypeScript config, please use the following command:
 
