@@ -19,12 +19,12 @@
 const spawn = require('cross-spawn');
 const { getJestConfigPath } = require('../utils/getConfigPaths');
 const tsSetup = require('../typescript/tssetup');
-const { createJestConfig } = require('../jest/jestCreator');
+const { createNewJestConfig } = require('../jest/jestCreator');
 
 const execute = () => {
     console.log('Running Unit Tests');
     tsSetup(false);
-    createJestConfig();
+    createNewJestConfig();
 
     const otherArgs = process.argv.slice(2);
 
