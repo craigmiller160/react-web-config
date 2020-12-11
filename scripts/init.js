@@ -17,5 +17,7 @@
  */
 
 const tsSetup = require('../typescript/tssetup');
+const { createNewJestConfig } = require('../jest/jestCreator');
 
 tsSetup(false);
+createNewJestConfig();
