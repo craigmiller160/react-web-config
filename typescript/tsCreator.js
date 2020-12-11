@@ -21,7 +21,7 @@ const fs = require('fs');
 
 const tsConfigVersion = 1;
 
-const internalTsConfigPath = path.resolve(process.cwd(), 'node_modules', 'tsconfig.json');
+const internalTsConfigPath = path.resolve(process.cwd(), 'tsconfig.base.json');
 const externalTsConfigPath = path.resolve(process.cwd(), 'tsconfig.json');
 
 const shouldWriteConfig = () => {
@@ -33,6 +33,7 @@ const shouldWriteConfig = () => {
 
 const createNewTsConfig = () => {
     if (shouldWriteConfig()) {
+        console.log('Writing tsconfig.base.json');
         const tsConfig = {
             version: tsConfigVersion,
             compilerOptions: {
@@ -67,6 +68,8 @@ const createNewTsConfig = () => {
         };
         const tsConfigString = JSON.stringify(tsConfig, null, 2);
         fs.writeFileSync(internalTsConfigPath, tsConfigString, 'utf8');
+    } else {
+        console.log('Skipping writing tsconfig.base.json');
     }
 };
 
@@ -82,11 +85,14 @@ const addOutDirToTsConfig = () => {
 
 const createExtendsTsConfig = () => {
     if (!fs.existsSync(externalTsConfigPath)) {
+        console.log('Writing tsconfig.json');
         const tsConfig = {
-            extends: './node_modules/tsconfig.json'
+            extends: './tsconfig.base.json'
         };
         const tsConfigString = JSON.stringify(tsConfig, null, 2);
         fs.writeFileSync(externalTsConfigPath, tsConfigString, 'utf8');
+    } else {
+        console.log('Skipping writing tsconfig.json');
     }
 };
 

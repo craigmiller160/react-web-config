@@ -53,9 +53,9 @@ const commands = [
         file: path.resolve(__dirname, '../scripts/webpackAnalyze')
     },
     {
-        name: 'tsInit',
-        description: 'Initialize TypeScript before running other commands. Generally for IDE support',
-        file: path.resolve(__dirname, '../scripts/tsInit.js')
+        name: 'init',
+        description: 'Initialize library configuration features, specifically ones with the need for IDE support.',
+        file: path.resolve(__dirname, '../scripts/init.js')
     },
     {
         name: 'devServer',
