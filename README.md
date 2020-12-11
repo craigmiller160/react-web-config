@@ -19,6 +19,12 @@ Also, there is a known, strange bug with a version clash of `es-abstract`. Pleas
 }
 ```
 
+Lastly, there is an initialization script. This sets up some configuration files that either require project information or need to be in special places in your project for maximum IDE support. To run this script, use:
+
+```
+web-config-scripts init
+```
+
 ## Polyfills
 
 For applications in need of polyfills, they are provided by this package. Simply add the following line to the beginning of the `index` file of the application:
@@ -55,9 +61,7 @@ This library will create a `tsconfig.base.json` file in the root of the project.
 
 Next to it will be a `tsconfig.json` file. This will extend `tsconfig.base.json`, and is available for you to override any settings that you want.
 
-To force the creation of the TypeScript config, please use the following command:
-
-`web-config-scripts tsInit`
+This process will occur for any TypeScript actions such as building the project. To force it to happen, run the `web-config-scripts init` script.
 
 For building a TypeScript library, the output directory will be `<rootDir/lib`. This is done with this command:
 
