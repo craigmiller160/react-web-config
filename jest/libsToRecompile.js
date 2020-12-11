@@ -17,5 +17,6 @@
  */
 
 module.exports = [
-    '\@craigmiller160\/react-test-utils'
+    '\@craigmiller160\/react-test-utils',
+    'fp-ts'
 ];
