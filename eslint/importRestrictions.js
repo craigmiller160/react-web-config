@@ -35,6 +35,10 @@ module.exports = {
             message: 'Please use more detailed import: "date-fns/ITEM/index"'
         },
         {
+            name: 'date-fns-tz',
+            message: 'Please use more detailed import: "date-fns-tz/esm/ITEM"'
+        },
+        {
             name: 'moment',
             message: 'MomentJS is a heavy library. Please use date-fns instead'
         }
