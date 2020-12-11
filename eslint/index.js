@@ -102,7 +102,7 @@ const config = {
 		],
         'no-restricted-imports': [
             'error',
-            ...importRestrictions
+            importRestrictions
         ]
 	},
 	globals: {
