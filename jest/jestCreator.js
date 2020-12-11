@@ -11,7 +11,7 @@ module.exports = {
 
 const configFilePath = path.resolve(process.cwd(), 'jest.config.js');
 
-const shouldWriteConfig = () => fs.existsSync(configFilePath);
+const shouldWriteConfig = () => !fs.existsSync(configFilePath);
 
 const createNewJestConfig = () => {
     if (shouldWriteConfig()) {
