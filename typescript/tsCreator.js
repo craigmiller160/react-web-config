@@ -21,7 +21,7 @@ const fs = require('fs');
 
 const tsConfigVersion = 1;
 
-const internalTsConfigPath = path.resolve(process.cwd(), 'node_modules', 'tsconfig.json');
+const internalTsConfigPath = path.resolve(process.cwd(), 'tsconfig.base.json');
 const externalTsConfigPath = path.resolve(process.cwd(), 'tsconfig.json');
 
 const shouldWriteConfig = () => {
