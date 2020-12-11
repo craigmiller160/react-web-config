@@ -33,6 +33,7 @@ const shouldWriteConfig = () => {
 
 const createNewTsConfig = () => {
     if (shouldWriteConfig()) {
+        console.log('Writing tsconfig.base.json');
         const tsConfig = {
             version: tsConfigVersion,
             compilerOptions: {
@@ -67,6 +68,8 @@ const createNewTsConfig = () => {
         };
         const tsConfigString = JSON.stringify(tsConfig, null, 2);
         fs.writeFileSync(internalTsConfigPath, tsConfigString, 'utf8');
+    } else {
+        console.log('Skipping writing tsconfig.base.json');
     }
 };
 
@@ -82,11 +85,14 @@ const addOutDirToTsConfig = () => {
 
 const createExtendsTsConfig = () => {
     if (!fs.existsSync(externalTsConfigPath)) {
+        console.log('Writing tsconfig.json');
         const tsConfig = {
             extends: './tsconfig.base.json'
         };
         const tsConfigString = JSON.stringify(tsConfig, null, 2);
         fs.writeFileSync(externalTsConfigPath, tsConfigString, 'utf8');
+    } else {
+        console.log('Skipping writing tsconfig.json');
     }
 };
 
