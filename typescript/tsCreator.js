@@ -83,7 +83,7 @@ const addOutDirToTsConfig = () => {
 const createExtendsTsConfig = () => {
     if (!fs.existsSync(externalTsConfigPath)) {
         const tsConfig = {
-            extends: './node_modules/tsconfig.json'
+            extends: './tsconfig.base.json'
         };
         const tsConfigString = JSON.stringify(tsConfig, null, 2);
         fs.writeFileSync(externalTsConfigPath, tsConfigString, 'utf8');
