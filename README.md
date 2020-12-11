@@ -45,11 +45,9 @@ To run eslint, use this NPM script: `web-config-scripts lint`.
 
 ## Jest
 
-All jest configurations and dependencies for both JavaScript & TypeScript are included here.
+All jest configurations and dependencies for both JavaScript & TypeScript are included here. In order to improve IDE support, when tests are run a jest.config.js file is created in the root of the project directory. This is needed for IDE support.
 
-If a custom jest configuration is needed, it will be searched for in the parent project here: `<rootDir>/jest.config.js`.
-
-By default, this internal jest config is used: `jest/index.js`.
+To get this file right away, run `web-config-scripts init`.
 
 To run jest, use this NPM script: `web-config-scripts test`.
 
