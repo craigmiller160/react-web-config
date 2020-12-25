@@ -33,6 +33,7 @@ const execute = () => {
             if (err.details) {
                 console.error(err.details);
             }
+            process.exit(1);
             return;
         }
 
@@ -41,6 +42,10 @@ const execute = () => {
         });
 
         console.log(output);
+
+        if (stats.compilation.errors?.length > 0) {
+            process.exit(1);
+        }
     });
 };
 
