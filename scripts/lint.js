@@ -46,7 +46,10 @@ const execute = async () => {
     const formatter = await eslint.loadFormatter('stylish');
     const resultText = formatter.format(results);
 
-    console.log(resultText);
+    if (resultText.length > 0) {
+        console.log(resultText);
+        process.exit(1);
+    }
 };
 
 execute()
