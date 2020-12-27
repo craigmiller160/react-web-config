@@ -18,5 +18,6 @@
 
 module.exports = [
     '\@craigmiller160\/react-test-utils',
-    'fp-ts'
+    'fp-ts',
+    '\@craigmiller160\/react-material-ui-common'
 ];
