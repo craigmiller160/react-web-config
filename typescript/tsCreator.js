@@ -19,7 +19,7 @@
 const path = require('path');
 const fs = require('fs');
 
-const tsConfigVersion = 2;
+const tsConfigVersion = 3;
 
 const baseTsConfigPath = path.resolve(process.cwd(), 'tsconfig.json');
 const buildTsConfigPath = path.resolve(process.cwd(), 'tsconfig.build.json');
@@ -96,7 +96,7 @@ const createNewTsBuildConfig = () => {
                 path.resolve(process.cwd(), 'src/**/*')
             ]
         };
-        const tsConfigString = JSON.stringify(tsConfig, null, 2);
+        const tsConfigString = JSON.stringify(tsBuildConfig, null, 2);
         fs.writeFileSync(buildTsConfigPath, tsConfigString, 'utf8');
     } else {
         console.log('Skipping writing tsconfig.build.json');
