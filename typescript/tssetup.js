@@ -17,7 +17,7 @@
  */
 
 const {
-    createNewTsConfig,
+    createNewTsBaseConfig,
     createNewTsBuildConfig,
     deleteTsConfigBase,
     addOutDirToTsConfig
@@ -29,7 +29,7 @@ const setup = (addOutDir) => {
     const packageJson = require(packageJsonPath);
     if (!packageJson.noTsconfig) {
         deleteTsConfigBase();
-        createNewTsConfig();
+        createNewTsBaseConfig();
         createNewTsBuildConfig();
         if (addOutDir) {
             addOutDirToTsConfig();
