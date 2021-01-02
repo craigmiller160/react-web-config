@@ -22,6 +22,7 @@ const fs = require('fs');
 const tsConfigVersion = 1;
 
 const internalTsConfigPath = path.resolve(process.cwd(), 'tsconfig.base.json');
+const tsConfigTestPath = path.resolve(process.cwd(), 'tsconfig.test.json');
 const externalTsConfigPath = path.resolve(process.cwd(), 'tsconfig.json');
 
 const shouldWriteConfig = () => {
@@ -31,45 +32,72 @@ const shouldWriteConfig = () => {
     return true;
 };
 
+const shouldWriteTestConfig = () => {
+    if (fs.existsSync(tsConfigTestPath)) {
+        return require(tsConfigTestPath).version < tsConfigVersion;
+    }
+    return true;
+};
+
+const buildBaseTsConfig = () => ({
+    version: tsConfigVersion,
+    compilerOptions: {
+        target: 'es5',
+        lib: [
+            'dom',
+            'dom.iterable',
+            'esnext'
+        ],
+        allowJs: true,
+        skipLibCheck: true,
+        esModuleInterop: true,
+        allowSyntheticDefaultImports: true,
+        strict: true,
+        forceConsistentCasingInFileNames: true,
+        moduleResolution: 'node',
+        resolveJsonModule: true,
+        isolatedModules: true,
+        jsx: 'react',
+        declaration: false,
+        module: 'es2015'
+    },
+    include: [
+        path.resolve(process.cwd(), 'src/**/*')
+    ],
+    exclude: [
+        path.resolve(process.cwd(), 'node_modules'),
+        path.resolve(process.cwd(), 'lib'),
+        path.resolve(process.cwd(), 'build'),
+        path.resolve(process.cwd(), '.yalc')
+    ]
+});
+
 const createNewTsConfig = () => {
     if (shouldWriteConfig()) {
         console.log('Writing tsconfig.base.json');
-        const tsConfig = {
-            version: tsConfigVersion,
-            compilerOptions: {
-                target: 'es5',
-                lib: [
-                    'dom',
-                    'dom.iterable',
-                    'esnext'
-                ],
-                allowJs: true,
-                skipLibCheck: true,
-                esModuleInterop: true,
-                allowSyntheticDefaultImports: true,
-                strict: true,
-                forceConsistentCasingInFileNames: true,
-                moduleResolution: 'node',
-                resolveJsonModule: true,
-                isolatedModules: true,
-                jsx: 'react',
-                declaration: false,
-                module: 'es2015'
-            },
-            include: [
-                path.resolve(process.cwd(), 'src/**/*')
-            ],
-            exclude: [
-                path.resolve(process.cwd(), 'node_modules'),
-                path.resolve(process.cwd(), 'lib'),
-                path.resolve(process.cwd(), 'build'),
-                path.resolve(process.cwd(), '.yalc')
-            ]
-        };
+        const tsConfig = buildBaseTsConfig();
         const tsConfigString = JSON.stringify(tsConfig, null, 2);
         fs.writeFileSync(internalTsConfigPath, tsConfigString, 'utf8');
     } else {
         console.log('Skipping writing tsconfig.base.json');
+    }
+};
+
+const createNewTsTestConfig = () => {
+    if (shouldWriteTestConfig()) {
+        console.log('Writing tsconfig.test.json');
+        const tsConfig = buildBaseTsConfig();
+        const tsConfigTest = {
+            ...tsConfig,
+            include: [
+                ...tsConfig.include,
+                path.resolve(process.cwd(), 'test/**/*')
+            ]
+        };
+        const tsConfigTestString = JSON.stringify(tsConfigTest, null, 2);
+        fs.writeFileSync(tsConfigTestPath, tsConfigTestString, 'utf8');
+    } else {
+        console.log('Skipping writing tsconfig.test.json');
     }
 };
 

@@ -65,5 +65,10 @@ module.exports = {
     transform: {
         '^.+\\.jsx?$': path.resolve(__dirname, './jsTransformer.js'),
         '^.+\\.tsx?$': 'ts-jest'
+    },
+    globals: {
+        'ts-jest': {
+            tsconfig: path.resolve(process.cwd(), 'tsconfig.test.json')
+        }
     }
 };
