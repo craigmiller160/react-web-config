@@ -26,7 +26,8 @@ const buildTsConfigPath = path.resolve(process.cwd(), 'tsconfig.build.json');
 
 const shouldWriteConfig = (configPath) => {
     if (fs.existsSync(configPath)) {
-        return require(configPath).version < tsConfigVersion;
+        const version = require(configPath).version;
+        return version === undefined || version < tsConfigVersion;
     }
     return true;
 };
