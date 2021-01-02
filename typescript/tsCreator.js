@@ -19,27 +19,19 @@
 const path = require('path');
 const fs = require('fs');
 
-const tsConfigVersion = 1;
+const tsConfigVersion = 2;
 
-const internalTsConfigPath = path.resolve(process.cwd(), 'tsconfig.base.json');
-const tsConfigTestPath = path.resolve(process.cwd(), 'tsconfig.test.json');
-const externalTsConfigPath = path.resolve(process.cwd(), 'tsconfig.json');
+const baseTsConfigPath = path.resolve(process.cwd(), 'tsconfig.json');
+const buildTsConfigPath = path.resolve(process.cwd(), 'tsconfig.build.json');
 
-const shouldWriteConfig = () => {
-    if (fs.existsSync(internalTsConfigPath)) {
-        return require(internalTsConfigPath).version < tsConfigVersion;
+const shouldWriteConfig = (configPath) => {
+    if (fs.existsSync(configPath)) {
+        return require(configPath).version < tsConfigVersion;
     }
     return true;
 };
 
-const shouldWriteTestConfig = () => {
-    if (fs.existsSync(tsConfigTestPath)) {
-        return require(tsConfigTestPath).version < tsConfigVersion;
-    }
-    return true;
-};
-
-const buildBaseTsConfig = () => ({
+const buildTsConfig = () => ({
     version: tsConfigVersion,
     compilerOptions: {
         target: 'es5',
@@ -62,7 +54,8 @@ const buildBaseTsConfig = () => ({
         module: 'es2015'
     },
     include: [
-        path.resolve(process.cwd(), 'src/**/*')
+        path.resolve(process.cwd(), 'src/**/*'),
+        path.resolve(process.cwd(), 'test/**/*')
     ],
     exclude: [
         path.resolve(process.cwd(), 'node_modules'),
@@ -72,60 +65,53 @@ const buildBaseTsConfig = () => ({
     ]
 });
 
-const createNewTsConfig = () => {
-    if (shouldWriteConfig()) {
-        console.log('Writing tsconfig.base.json');
-        const tsConfig = buildBaseTsConfig();
-        const tsConfigString = JSON.stringify(tsConfig, null, 2);
-        fs.writeFileSync(internalTsConfigPath, tsConfigString, 'utf8');
-    } else {
-        console.log('Skipping writing tsconfig.base.json');
-    }
-};
-
-const createNewTsTestConfig = () => {
-    if (shouldWriteTestConfig()) {
-        console.log('Writing tsconfig.test.json');
-        const tsConfig = buildBaseTsConfig();
-        const tsConfigTest = {
-            ...tsConfig,
-            include: [
-                ...tsConfig.include,
-                path.resolve(process.cwd(), 'test/**/*')
-            ]
-        };
-        const tsConfigTestString = JSON.stringify(tsConfigTest, null, 2);
-        fs.writeFileSync(tsConfigTestPath, tsConfigTestString, 'utf8');
-    } else {
-        console.log('Skipping writing tsconfig.test.json');
-    }
-};
-
-const addOutDirToTsConfig = () => {
-    const tsConfig = require(internalTsConfigPath);
-    if (tsConfig.version <= tsConfigVersion && !tsConfig.compilerOptions.outDir) {
-        tsConfig.compilerOptions.outDir = path.resolve(process.cwd(), 'lib');
-        tsConfig.compilerOptions.declaration = true;
-        const tsConfigString = JSON.stringify(tsConfig, null, 2);
-        fs.writeFileSync(internalTsConfigPath, tsConfigString, 'utf8');
-    }
-};
-
-const createExtendsTsConfig = () => {
-    if (!fs.existsSync(externalTsConfigPath)) {
+const createNewTsBaseConfig = () => {
+    if (shouldWriteConfig(baseTsConfigPath)) {
         console.log('Writing tsconfig.json');
-        const tsConfig = {
-            extends: './tsconfig.base.json'
-        };
+        const tsConfig = buildTsConfig();
         const tsConfigString = JSON.stringify(tsConfig, null, 2);
-        fs.writeFileSync(externalTsConfigPath, tsConfigString, 'utf8');
+        fs.writeFileSync(baseTsConfigPath, tsConfigString, 'utf8');
     } else {
         console.log('Skipping writing tsconfig.json');
     }
 };
 
+const addOutDirToTsConfig = () => {
+    const tsConfig = require(buildTsConfigPath);
+    if (tsConfig.version <= tsConfigVersion && !tsConfig.compilerOptions.outDir) {
+        tsConfig.compilerOptions.outDir = path.resolve(process.cwd(), 'lib');
+        tsConfig.compilerOptions.declaration = true;
+        const tsConfigString = JSON.stringify(tsConfig, null, 2);
+        fs.writeFileSync(buildTsConfigPath, tsConfigString, 'utf8');
+    }
+};
+
+const createNewTsBuildConfig = () => {
+    if (shouldWriteConfig(buildTsConfigPath)) {
+        console.log('Writing tsconfig.build.json');
+        const tsConfig = buildTsConfig();
+        const tsBuildConfig = {
+            ...tsConfig,
+            include: [
+                path.resolve(process.cwd(), 'src/**/*')
+            ]
+        };
+        const tsConfigString = JSON.stringify(tsConfig, null, 2);
+        fs.writeFileSync(buildTsConfigPath, tsConfigString, 'utf8');
+    } else {
+        console.log('Skipping writing tsconfig.build.json');
+    }
+};
+
+const deleteTsConfigBase = () => {
+    if (fs.existsSync(path.resolve(process.cwd(), 'tsconfig.base.json'))) {
+        fs.rmSync(path.resolve(process.cwd(), 'tsconfig.base.json'));
+    }
+};
+
 module.exports = {
-    createNewTsConfig,
+    createNewTsBaseConfig,
     addOutDirToTsConfig,
-    createExtendsTsConfig
+    createNewTsBuildConfig,
+    deleteTsConfigBase
 };

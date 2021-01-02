@@ -16,15 +16,21 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const { createNewTsConfig, createExtendsTsConfig, addOutDirToTsConfig } = require('./tsCreator');
+const {
+    createNewTsConfig,
+    createNewTsBuildConfig,
+    deleteTsConfigBase,
+    addOutDirToTsConfig
+} = require('./tsCreator');
 const path = require('path');
 
 const setup = (addOutDir) => {
     const packageJsonPath = path.resolve(process.cwd(), 'package.json');
     const packageJson = require(packageJsonPath);
     if (!packageJson.noTsconfig) {
+        deleteTsConfigBase();
         createNewTsConfig();
-        createExtendsTsConfig();
+        createNewTsBuildConfig();
         if (addOutDir) {
             addOutDirToTsConfig();
         }
