@@ -1,6 +1,6 @@
 {
   "name": "@craigmiller160/react-web-config",
-  "version": "2.6.3",
+  "version": "2.7.0-beta",
   "sideEffects": [
     "./polyfills/index.js"
   ],
