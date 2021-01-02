@@ -20,5 +20,6 @@ module.exports = [
     '\@craigmiller160\/react-test-utils',
     'fp-ts',
     '\@craigmiller160\/react-material-ui-common',
-    '\@craigmiller160\/ajax-api'
+    '\@craigmiller160\/ajax-api',
+    '\@craigmiller160\/jest-matchers-common'
 ];
