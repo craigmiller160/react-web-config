@@ -20,7 +20,7 @@ const path = require('path');
 const fs = require('fs');
 
 const externalJestConfigPath = path.resolve(process.cwd(), 'jest.config.js');
-const externalTsConfigPath = path.resolve(process.cwd(), 'tsconfig.json');
+const externalTsConfigPath = path.resolve(process.cwd(), 'tsconfig.build.json');
 
 const getJestConfigPath = () => {
     if (fs.existsSync(externalJestConfigPath)) {
