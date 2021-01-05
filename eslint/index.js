@@ -51,6 +51,7 @@ const config = {
 		'react/jsx-indent': 0,
 		'indent': 0,
 		'react/jsx-filename-extension': 0,
+		'array-callback-return': 0,
 		'no-console': [
 		    'error',
             {
