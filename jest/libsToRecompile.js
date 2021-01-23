@@ -21,5 +21,6 @@ module.exports = [
     'fp-ts',
     '\@craigmiller160\/react-material-ui-common',
     '\@craigmiller160\/ajax-api',
-    '\@craigmiller160\/jest-matchers-common'
+    '\@craigmiller160\/jest-matchers-common',
+    '\@craigmiller160\/react-protected-route'
 ];
