@@ -111,7 +111,8 @@ Customizations for the webpack build are defined in the `<rootDir>/project.confi
     devServerHttps: false,
     devServerProxy: {},
     publicPath: '/',
-    jestSetupFiles: []
+    jestSetupFiles: [],
+    enzymeReactVersion: 17
 }
 ```
 

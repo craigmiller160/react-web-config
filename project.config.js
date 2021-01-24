@@ -25,5 +25,6 @@ module.exports = {
     devServerHttps: false,
     devServerProxy: {},
     publicPath: '/',
-    jestSetupFiles: []
+    jestSetupFiles: [],
+    enzymeReactVersion: 17
 };
