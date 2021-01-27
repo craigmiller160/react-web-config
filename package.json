@@ -1,6 +1,6 @@
 {
   "name": "@craigmiller160/react-web-config",
-  "version": "2.8.0",
+  "version": "2.8.1",
   "publishConfig": {
     "registry": "http://craigpc:30003/repository/npm-private/"
   },
