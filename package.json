@@ -1,6 +1,9 @@
 {
   "name": "@craigmiller160/react-web-config",
   "version": "2.8.0",
+  "publishConfig": {
+    "registry": "http://craigpc:30003/repository/npm-private/"
+  },
   "sideEffects": [
     "./polyfills/index.js"
   ],
@@ -8,7 +11,7 @@
     "web-config-scripts": "./bin/web-config-scripts.js"
   },
   "description": "A re-usable set of configurations for JS web development.",
-  "author": "Craig Miller",
+  "author": "craigmiller160",
   "license": "MIT",
   "files": [
     ".yalc",
