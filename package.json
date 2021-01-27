@@ -11,7 +11,7 @@
     "web-config-scripts": "./bin/web-config-scripts.js"
   },
   "description": "A re-usable set of configurations for JS web development.",
-  "author": "Craig Miller",
+  "author": "craigmiller160",
   "license": "MIT",
   "files": [
     ".yalc",
