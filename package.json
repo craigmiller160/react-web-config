@@ -2,7 +2,7 @@
   "name": "@craigmiller160/react-web-config",
   "version": "2.9.0-beta",
   "publishConfig": {
-    "registry": "http://craigpc:30003/repository/npm-private"
+    "registry": "http://craigpc:30003/repository/npm-private/"
   },
   "sideEffects": [
     "./polyfills/index.js"
