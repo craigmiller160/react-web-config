@@ -1,8 +1,8 @@
 {
   "name": "@craigmiller160/react-web-config",
-  "version": "2.8.1",
+  "version": "2.8.2",
   "publishConfig": {
-    "registry": "http://craigpc:30003/repository/npm-private/"
+    "registry": "https://craigmiller160.ddns.net:30003/repository/npm-private/"
   },
   "sideEffects": [
     "./polyfills/index.js"
