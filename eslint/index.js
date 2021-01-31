@@ -47,6 +47,7 @@ const config = {
 		}
 	},
 	rules: {
+		'no-shadow': 0,
 		'no-tabs': 0,
 		'react/jsx-indent': 0,
 		'indent': 0,
@@ -146,6 +147,7 @@ const config = {
 				'no-undef': 'off',
 				'@typescript-eslint/consistent-type-assertions': 'error',
 				'@typescript-eslint/no-use-before-define': 'error',
+				'@typescript-eslint/no-shadow': 'error',
 				'no-array-constructor': 'off',
 				'@typescript-eslint/no-array-constructor': 'error',
 				'no-use-before-define': 'off',
