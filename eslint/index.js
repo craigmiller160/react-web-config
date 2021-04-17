@@ -22,7 +22,6 @@ const importRestrictions = require('./importRestrictions');
 const config = {
 	extends: [
 		'airbnb',
-		'prettier/@typescript-eslint',
 		'plugin:prettier/recommended'
 	],
 	plugins: [
@@ -64,7 +63,6 @@ const config = {
 		'react/jsx-curly-spacing': [ 2, { 'when': 'always', allowMultiline: false } ],
 		'react/jsx-indent-props': 0,
 		'no-trailing-spaces': 0,
-		'comma-dangle': ['error', 'never'],
 		'react/jsx-props-no-spreading': 0,
 		'no-plusplus': 0,
 		'import/no-extraneous-dependencies': 0,
@@ -180,22 +178,7 @@ const config = {
 					}
 				],
 				'no-empty-function': 0,
-				'@typescript-eslint/no-empty-function': 'error',
-                'semi': 0,
-                '@typescript-eslint/semi': ['error', 'always'],
-                '@typescript-eslint/member-delimiter-style': [
-                    'error',
-                    {
-                        multiline: {
-                            delimiter: 'semi',
-                            requireLast: true
-                        },
-                        singleline: {
-                            delimiter: 'semi',
-                            requireLast: true
-                        }
-                    }
-                ]
+				'@typescript-eslint/no-empty-function': 'error'
 			}
 		}
 	]
