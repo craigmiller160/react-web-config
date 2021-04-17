@@ -21,7 +21,9 @@ const importRestrictions = require('./importRestrictions');
 
 const config = {
 	extends: [
-		'airbnb'
+		'airbnb',
+		'prettier/@typescript-eslint',
+		'plugin:prettier/recommended'
 	],
 	plugins: [
 		'react-hooks'
