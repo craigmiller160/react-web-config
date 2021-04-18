@@ -20,10 +20,26 @@ const { ESLint } = require('eslint');
 const path = require('path');
 const { requireEslintConfig } = require('../utils/requireConfigs');
 const tsSetup = require('../typescript/tssetup');
+const fs = require('fs');
+
+const externalPrettierTemplate = `
+module.exports = require('@craigmiller160/react-web-config/lint/.prettierrc.js');
+`;
+
+const prettierSetup = () => {
+    const externalPrettierPath = path.resolve(process.cwd(), '.prettierrc.js');
+    if (!fs.existsSync(externalPrettierPath)) {
+        console.log('Creating prettier config file');
+        fs.writeFileSync(externalPrettierPath, externalPrettierTemplate);
+    } else {
+        console.log('Skipping writing prettier config file');
+    }
+};
 
 const execute = async () => {
     console.log('Running eslint validation');
     tsSetup(false);
+    prettierSetup();
 
     const eslint = new ESLint({
         errorOnUnmatchedPattern: false,
