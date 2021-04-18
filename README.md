@@ -39,7 +39,7 @@ All eslint configuration and dependencies for both JavaScript and TypeScript are
 
 If a custom eslint configuration is needed, it will be searched for in the parent project here: `<rootDir>/eslint.config.js`.
 
-By default, this internal eslint config is used: `eslint/index.js`.
+By default, this internal eslint config is used: `eslint/.eslintrc.js`.
 
 To run eslint, use this NPM script: `web-config-scripts lint`.
 

@@ -19,7 +19,7 @@
 const path = require('path');
 const fs = require('fs');
 
-const externalEslintConfigPath = path.resolve(process.cwd(), 'eslint.config.js');
+const externalEslintConfigPath = path.resolve(process.cwd(), '.eslintrc.js');
 const externalBabelConfigPath = path.resolve(process.cwd(), 'babel.config.js');
 const externalProjectConfigPath = path.resolve(process.cwd(), 'project.config.js');
 
@@ -27,7 +27,7 @@ const requireEslintConfig = () => {
     if (fs.existsSync(externalEslintConfigPath)) {
         return require(externalEslintConfigPath);
     }
-    return require('../lint');
+    return require('../lint/.eslintrc');
 };
 
 const requireBabelConfig = () => {

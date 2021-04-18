@@ -26,7 +26,7 @@ const getJestConfigPath = () => {
     if (fs.existsSync(externalJestConfigPath)) {
         return externalJestConfigPath;
     }
-    return path.resolve(__dirname, '../jest/index.js');
+    return path.resolve(__dirname, '../jest/.eslintrc.js');
 };
 
 const getTsConfigPath = () => externalTsConfigPath;
