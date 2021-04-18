@@ -24,6 +24,7 @@ module.exports = {
     extends: [
         'eslint:recommended',
         'plugin:react/recommended',
+        'plugin:react-hooks/recommended',
         'plugin:jsx-a11y/recommended',
         'plugin:prettier/recommended'
     ],
@@ -39,7 +40,8 @@ module.exports = {
             'error',
             importRestrictions
         ],
-        'react/display-name': 0
+        'react/display-name': 0,
+        'react-hooks/exhaustive-deps': 'error'
     },
     overrides: [
         {
