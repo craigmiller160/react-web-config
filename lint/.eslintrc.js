@@ -11,6 +11,7 @@ module.exports = {
             jsx: true
         }
     },
+    parser: 'babel-eslint',
     settings: {
         react: {
             version: 'detect'
