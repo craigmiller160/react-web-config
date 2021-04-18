@@ -38,7 +38,8 @@ module.exports = {
         'no-restricted-imports': [
             'error',
             importRestrictions
-        ]
+        ],
+        'react/display-name': 0
     },
     overrides: [
         {
