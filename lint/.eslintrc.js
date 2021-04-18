@@ -1,4 +1,7 @@
 /* eslint-disable prettier/prettier */
+const importRestrictions = require('./importRestrictions');
+const path = require('path');
+
 module.exports = {
     root: true,
     parserOptions: {
@@ -26,13 +29,29 @@ module.exports = {
     ],
     rules: {
         'prettier/prettier': ['error', {}, { usePrettierrc: true }],
-        'no-console': 'error'
+        'no-console': [
+            'error',
+            {
+                allow: ['error']
+            }
+        ],
+        'no-restricted-imports': [
+            'error',
+            importRestrictions
+        ]
     },
     overrides: [
         {
             files: ['**/*.ts?(x)'],
             parser: '@typescript-eslint/parser',
-            extends: ['plugin:@typescript-eslint/recommended']
+            extends: ['plugin:@typescript-eslint/recommended'],
+            settings: {
+                'import/resolver': {
+                    typescript: {
+                        project: path.resolve(process.cwd(), 'tsconfig.json')
+                    }
+                }
+            }
         }
     ]
 };
