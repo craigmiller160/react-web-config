@@ -27,7 +27,7 @@ const requireEslintConfig = () => {
     if (fs.existsSync(externalEslintConfigPath)) {
         return require(externalEslintConfigPath);
     }
-    return require('../eslint');
+    return require('../lint');
 };
 
 const requireBabelConfig = () => {

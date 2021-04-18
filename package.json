@@ -16,7 +16,7 @@
   "files": [
     ".yalc",
     "babel",
-    "eslint",
+    "lint",
     "polyfills",
     "webpack",
     "scripts",
