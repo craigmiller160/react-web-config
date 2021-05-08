@@ -23,11 +23,6 @@ const spawn = require('cross-spawn');
 
 const commands = [
     {
-        name: 'lint',
-        description: 'Run eslint',
-        file: path.resolve(__dirname, '../scripts/lint.js')
-    },
-    {
         name: 'test',
         description: 'Run jest tests',
         file: path.resolve(__dirname, '../scripts/test.js')
