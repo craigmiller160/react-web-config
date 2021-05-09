@@ -7,6 +7,9 @@
   "sideEffects": [
     "./polyfills/index.js"
   ],
+  "scripts": {
+    "build": "echo 'No build needed'"
+  },
   "bin": {
     "web-config-scripts": "./bin/web-config-scripts.js"
   },
