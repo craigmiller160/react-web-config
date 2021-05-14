@@ -65,7 +65,8 @@ module.exports = {
             patterns: [
                 {
                     from: path.resolve(process.cwd(), 'public'),
-                    to: path.resolve(process.cwd(), 'build')
+                    to: path.resolve(process.cwd(), 'build'),
+                    noErrorOnMissing: true
                 }
             ]
         })
